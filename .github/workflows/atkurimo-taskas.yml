@@ -1,0 +1,28 @@
+# Kiekvienas push į main (krei.lt pakeitimas): atkūrimo taškas (žyma live-…) + žinutė Slack #krei-lt.
+# Atšaukti: krei-site-source aplanke `python3 grazinti.py`.
+name: Atkūrimo taškas ir pranešimas
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+concurrency: atkurimo-taskas
+jobs:
+  zyme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Žyma (atkūrimo taškas)
+        run: |
+          T="live-$(TZ=Europe/Vilnius date +%Y-%m-%d-%H%M%S)"
+          git tag "$T" "$GITHUB_SHA"
+          git push origin "$T"
+          echo "TAG=$T" >> "$GITHUB_ENV"
+      - name: Slack
+        if: ${{ vars.SLACK_CHANNEL != '' }}
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL: ${{ vars.SLACK_CHANNEL }}
+        run: python3 .github/slack_pranesimas.py
