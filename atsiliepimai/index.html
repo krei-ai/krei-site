@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>krei · Ką sako mūsų klientai</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Vadovai ir darbuotojai iš įmonių, kur vedėme dirbtuves, papasakojo, kas pasikeitė jų darbe.">
+<meta property="og:title" content="krei · Ką sako mūsų klientai">
+<meta property="og:description" content="Vadovai ir darbuotojai iš įmonių, kur vedėme dirbtuves, papasakojo, kas pasikeitė jų darbe.">
+<meta property="og:image" content="https://krei.lt/og-card.png">
+<meta name="theme-color" content="#141210">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Fraunces";src:url("/fonts/fraunces-600.woff2") format("woff2");font-weight:600;font-display:swap}
+:root{--bg:#141210;--tile:#1F1C19;--line:rgba(255,255,255,.08);--t1:#fff;--t2:rgba(255,255,255,.64);--t3:rgba(255,255,255,.42);--tp:#00B67A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--t1);font-family:"DM Sans",system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto}
+section,header,footer{padding-left:120px;padding-right:120px}
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;padding-top:28px;padding-bottom:0}
+.logo{display:inline-flex;align-items:center;gap:8px;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:24px;letter-spacing:-.02em;line-height:1}
+.logo .i{color:#D97757}
+.pill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;font-weight:500;white-space:nowrap;transition:transform .15s ease,box-shadow .2s ease}
+.pill:hover{transform:translateY(-1px)}
+.pill-white{background:#fff;color:#141210;font-size:14px;padding:11px 20px}
+.pill-ember{background:linear-gradient(180deg,#F9D2B6 0%,#E7986F 100%);color:#2A140A;font-size:16px;padding:16px 30px;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 10px 40px rgba(231,152,111,.28)}
+.pill-ember:hover{box-shadow:0 0 0 1px rgba(255,255,255,.1),0 12px 48px rgba(231,152,111,.4)}
+/* hero */
+.hero{padding-top:56px;padding-bottom:48px}
+h1{font-weight:400;font-size:76px;line-height:1.02;letter-spacing:-.035em}
+.sub{margin-top:20px;font-size:20px;line-height:1.45;color:var(--t2);letter-spacing:-.01em}
+/* videos */
+.videos{padding-bottom:56px}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.vcard{display:flex;flex-direction:column;gap:16px}
+.player{position:relative;aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#0d0c0b;cursor:pointer}
+.player video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.player .play{position:absolute;left:14px;bottom:14px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:#141210;border:0;border-radius:999px;padding:8px 14px 8px 12px;font:500 14px/1 "DM Sans",sans-serif;cursor:pointer;transition:opacity .2s}
+.player .play svg{width:12px;height:12px}
+.player.on .play{opacity:0;pointer-events:none}
+.who .n{font-size:17px;font-weight:500;letter-spacing:-.01em}
+.who .r{margin-top:4px;font-size:14px;color:var(--t2)}
+.who .c{margin-top:4px;font-size:13px;color:var(--t3)}
+/* trustpilot */
+.tp{padding-bottom:24px}
+.tp-head{display:flex;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:32px;margin-bottom:28px}
+.tp-logo{display:inline-flex;align-items:center;gap:8px;font-size:18px;font-weight:500}
+.tp-logo svg{width:22px;height:22px}
+.tp-label{font-size:15px;color:rgba(255,255,255,.5)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rcard{background:var(--tile);border:1px solid rgba(255,255,255,.06);border-radius:28px;padding:28px;display:flex;flex-direction:column}
+.stars{display:flex;gap:2px}
+.stars span{width:20px;height:20px;background:var(--tp);display:grid;place-items:center}
+.stars svg{width:13px;height:13px}
+.rcard h3{margin-top:18px;font-size:19px;font-weight:500;letter-spacing:-.01em}
+.rcard p{margin-top:10px;font-size:16px;line-height:1.55;color:rgba(255,255,255,.72)}
+.author{margin-top:auto;padding-top:20px;border-top:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.rbody{padding-bottom:24px}
+.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:14px;font-weight:500;flex:none}
+.author .n{font-size:15px;font-weight:500}
+.author .m{font-size:13px;color:var(--t3);margin-top:2px}
+/* cta */
+.cta{padding-top:72px;padding-bottom:96px;text-align:center}
+.cta h2{font-weight:400;font-size:64px;line-height:1.05;letter-spacing:-.035em}
+.cta p{margin:24px auto 0;font-size:18px;color:var(--t2);max-width:none}
+.cta .pill{margin-top:28px}
+/* footer */
+footer{position:relative;overflow:hidden}
+.foot{border-top:1px solid var(--line);padding-top:40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot .ct{font-size:14px;color:var(--t2)}
+.foot .ct a:hover{color:#fff}
+.foot2{display:flex;justify-content:space-between;margin-top:24px;font-size:13px;color:var(--t3)}
+.foot2 a:hover{color:#fff}
+.big{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:clamp(160px,30vw,440px);line-height:.8;letter-spacing:-.05em;color:rgba(255,255,255,.04);text-align:center;margin-top:48px;margin-bottom:-.12em;user-select:none;pointer-events:none}
+@media (max-width:1100px){section,header,footer{padding-left:40px;padding-right:40px}.vgrid{grid-template-columns:repeat(2,1fr)}h1{font-size:60px}.cta h2{font-size:52px}}
+@media (max-width:720px){
+ section,header,footer{padding-left:20px;padding-right:20px}
+ .nav{padding-top:20px}.pill-white{font-size:13px;padding:10px 16px}
+ .hero{padding-top:40px;padding-bottom:32px}
+ h1{font-size:34px;letter-spacing:-.03em;white-space:nowrap}
+ .sub{font-size:17px;margin-top:14px}
+ .vgrid{grid-template-columns:1fr;gap:36px}
+ .videos{padding-bottom:48px}
+ .tgrid{grid-template-columns:1fr;gap:16px}
+ .tp-head{flex-direction:column;align-items:flex-start;gap:8px;padding-top:28px;margin-bottom:20px}
+ .rcard{padding:24px;border-radius:24px}
+ .cta{padding-top:64px;padding-bottom:72px}
+ .cta h2{font-size:34px}
+ .cta p{font-size:16px}
+ .cta .pill{width:100%}
+ .foot{flex-direction:column;align-items:flex-start}
+ .foot2{flex-direction:column;gap:8px}
+}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="logo" href="https://krei.lt/" aria-label="krei">
+    <svg width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="30" width="13" height="13" rx="3.2" fill="#9A4A2E"/><rect x="17.5" y="17.5" width="13" height="13" rx="3.2" fill="#C15F3C"/><rect x="30" y="5" width="13" height="13" rx="3.2" fill="#D97757"/></svg>
+    <span>kre<span class="i">i</span></span>
+  </a>
+  <a class="pill pill-white" href="https://krei.lt/#pokalbis">Rezervuok pokalbį</a>
+</header>
+
+<main>
+<section class="wrap hero">
+  <h1>Ką sako mūsų klientai?</h1>
+  <p class="sub">Vadovai ir darbuotojai iš įmonių, kur vedėme dirbtuves, papasakojo, kas pasikeitė jų darbe.</p>
+</section>
+
+<section class="wrap videos" aria-label="Vaizdo atsiliepimai">
+  <div class="vgrid">
+    <article class="vcard">
+      <div class="player"><video src="video/marius.mp4" poster="img/marius.webp" preload="none" playsinline></video><button class="play" aria-label="Paleisti Mariaus Kanevičiaus atsiliepimą"><svg viewBox="0 0 12 12"><path d="M2 1.2v9.6L10.4 6z" fill="currentColor"/></svg>2:50</button></div>
+      <div class="who"><div class="n">Marius Kanevičius</div><div class="r">Verslo plėtros vadovas · Eldeko</div><div class="c">Pramoninis suvirinimas ir dažymas</div></div>
+    </article>
+    <article class="vcard">
+      <div class="player"><video src="video/deividas.mp4" poster="img/deividas.webp" preload="none" playsinline></video><button class="play" aria-label="Paleisti Deivido Mikužio atsiliepimą"><svg viewBox="0 0 12 12"><path d="M2 1.2v9.6L10.4 6z" fill="currentColor"/></svg>0:43</button></div>
+      <div class="who"><div class="n">Deividas Mikužis</div><div class="r">Vadovas · Eldeko</div><div class="c">Pramoninis suvirinimas ir dažymas</div></div>
+    </article>
+    <article class="vcard">
+      <div class="player"><video src="video/romas.mp4" poster="img/romas.webp" preload="none" playsinline></video><button class="play" aria-label="Paleisti Romo atsiliepimą"><svg viewBox="0 0 12 12"><path d="M2 1.2v9.6L10.4 6z" fill="currentColor"/></svg>0:28</button></div>
+      <div class="who"><div class="n">Romas</div><div class="r">Forgedot</div><div class="c">Metalo apdirbimas</div></div>
+    </article>
+    <article class="vcard">
+      <div class="player"><video src="video/paulius.mp4" poster="img/paulius.webp" preload="none" playsinline></video><button class="play" aria-label="Paleisti Pauliaus atsiliepimą"><svg viewBox="0 0 12 12"><path d="M2 1.2v9.6L10.4 6z" fill="currentColor"/></svg>0:48</button></div>
+      <div class="who"><div class="n">Paulius</div><div class="r">Pardavimų vadovas</div><div class="c">Darbuotojų įdarbinimas</div></div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap tp" aria-label="Trustpilot atsiliepimai">
+  <div class="tp-head">
+    <span class="tp-logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#00B67A" d="M12 1.5l3.09 7.36 7.91.6-6.03 5.16 1.88 7.73L12 18.2l-6.85 4.15 1.88-7.73L1 9.46l7.91-.6z"/></svg>Trustpilot</span>
+    <span class="tp-label">Atsiliepimai, kuriuos klientai paliko Trustpilot platformoje.</span>
+  </div>
+  <div class="tgrid">
+    <article class="rcard">
+      <div class="rbody"><div class="stars" aria-label="5 iš 5"><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span></div>
+      <h3>Viskas puikiai</h3>
+      <p>Viskas puikiai, lengvai suprantama ir panaudojama. Nepakeičiamas įrankis darbe!</p></div>
+      <div class="author"><div class="av" style="background:#E7986F;color:#2A140A">EB</div><div><div class="n">Evelina Bickute</div><div class="m">Lietuva · 2026-10-14</div></div></div>
+    </article>
+    <article class="rcard">
+      <div class="rbody"><div class="stars" aria-label="5 iš 5"><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span></div>
+      <h3>Kietas produktas!</h3>
+      <p>Aiškus diegimo ir vartojimo procesas. Lengva naudotos ir aiškus rezultatas. Labai plačios galimybės, stipriai lenkiančios chatGPT, Copilot, Gemini ar kitus DI.</p></div>
+      <div class="author"><div class="av" style="background:#C9C2F2;color:#1E1640">LB</div><div><div class="n">Linas Bartkevičius</div><div class="m">Klaipėda · 2026-10-20</div></div></div>
+    </article>
+    <article class="rcard">
+      <div class="rbody"><div class="stars" aria-label="5 iš 5"><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span><span><svg viewBox="0 0 24 24"><path fill="#fff" d="M12 2l2.9 6.9 7.1.6-5.4 4.7 1.6 7L12 17.4 5.8 21.2l1.6-7L2 9.5l7.1-.6z"/></svg></span></div>
+      <h3>Viskas gerai</h3>
+      <p>Viskas gerai, suprantamai, aiškiai</p></div>
+      <div class="author"><div class="av" style="background:#5B3FB6;color:#fff">RG</div><div><div class="n">Romas Gliozys</div><div class="m">Klaipėda · 2026-10-20</div></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap cta">
+  <h2>Pradėk nuo vieno darbo.</h2>
+  <p>30 min. nemokamas pokalbis: pasakysim, kuriuos darbus Tavo įmonėje verta atiduoti DI darbuotojui pirmiausia.</p>
+  <a class="pill pill-ember" href="https://krei.lt/#pokalbis">Rezervuok nemokamą pokalbį</a>
+</section>
+</main>
+
+<footer class="wrap">
+  <div class="foot">
+    <a class="logo" href="https://krei.lt/" aria-label="krei">
+      <svg width="24" height="24" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="30" width="13" height="13" rx="3.2" fill="#9A4A2E"/><rect x="17.5" y="17.5" width="13" height="13" rx="3.2" fill="#C15F3C"/><rect x="30" y="5" width="13" height="13" rx="3.2" fill="#D97757"/></svg>
+      <span>kre<span class="i">i</span></span>
+    </a>
+    <div class="ct"><a href="mailto:info@krei.lt">info@krei.lt</a> · <a href="tel:+37060304727">+370 603 04727</a></div>
+  </div>
+  <div class="foot2"><span>© 2026 MB „Krei“</span><a href="https://krei.lt/teisine.html#privatumas">Privatumo politika</a></div>
+  <div class="big" aria-hidden="true">krei</div>
+</footer>
+
+<script>
+document.querySelectorAll('.player').forEach(function(p){
+  var v=p.querySelector('video');
+  p.addEventListener('click',function(){
+    if(p.classList.contains('on'))return;
+    document.querySelectorAll('.player.on').forEach(function(o){o.classList.remove('on');var ov=o.querySelector('video');ov.pause();ov.controls=false;});
+    p.classList.add('on');v.controls=true;v.play();
+  });
+  v.addEventListener('ended',function(){p.classList.remove('on');v.controls=false;v.load();});
+});
+</script>
+</body>
+</html>
