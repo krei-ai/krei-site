@@ -1086,6 +1086,12 @@ var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbya91jlBB1fbY5fzc5u
 document.addEventListener('click',function(e){ var l=e.target.closest('.li[data-href]'); if(!l) return; e.preventDefault(); e.stopPropagation(); window.open(l.dataset.href,'_blank','noopener'); });
 document.addEventListener('keydown',function(e){ if(e.key!=='Enter') return; var l=e.target.closest('.li[data-href]'); if(!l) return; e.preventDefault(); window.open(l.dataset.href,'_blank','noopener'); });
 
+/* ?pokalbis (LinkedIn nuorodai be #): po įkėlimo nuslenka iki pokalbio formos */
+(function(){
+  if(!/[?&]pokalbis(=|&|$)/.test(location.search)) return;
+  window.addEventListener('load',function(){ setTimeout(function(){ var b=document.getElementById('pokalbis'); if(b) b.scrollIntoView({behavior:'smooth',block:'start'}); },300); });
+})();
+
 /* Nav: tamsus ant hero, šviesus toliau */
 (function(){
   var nav=document.getElementById('nav'), hero=document.querySelector('.hero');
