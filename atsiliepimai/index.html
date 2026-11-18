@@ -38,6 +38,14 @@ section,header,footer{padding-left:120px;padding-right:120px}
 .hero{padding-top:56px;padding-bottom:48px}
 h1{font-weight:400;font-size:76px;line-height:1.02;letter-spacing:-.035em}
 .sub{margin-top:20px;font-size:20px;line-height:1.45;color:var(--t2);letter-spacing:-.01em}
+/* logos (kaip pagrindiniame) */
+.logos{margin-top:44px}
+.logos .lbl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:500;margin-bottom:18px}
+.lv{display:flex;gap:64px;overflow:hidden;width:100%;min-width:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.lt{display:flex;align-items:center;gap:64px;flex:none;width:max-content;animation:mq 36s linear infinite;will-change:transform}
+.lt img{height:30px;width:auto;max-width:150px;object-fit:contain;opacity:.55;filter:grayscale(1);display:block}
+@keyframes mq{to{transform:translateX(calc(-100% - 64px))}}
+@media (prefers-reduced-motion:reduce){.lt{animation:none}}
 /* videos */
 .videos{padding-bottom:56px}
 .vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
@@ -88,6 +96,7 @@ footer{position:relative;overflow:hidden}
  .hero{padding-top:40px;padding-bottom:32px}
  h1{font-size:34px;letter-spacing:-.03em;white-space:nowrap}
  .sub{font-size:17px;margin-top:14px}
+ .logos{margin-top:28px}.lv,.lt{gap:40px}.lt img{height:24px}@keyframes mq{to{transform:translateX(calc(-100% - 40px))}}
  .vgrid{grid-template-columns:1fr;gap:36px}
  .videos{padding-bottom:48px}
  .tgrid{grid-template-columns:1fr;gap:16px}
@@ -115,6 +124,7 @@ footer{position:relative;overflow:hidden}
 <section class="wrap hero">
   <h1>Ką sako mūsų klientai?</h1>
   <p class="sub">Vadovai ir darbuotojai iš įmonių, kur vedėme dirbtuves, papasakojo, kas pasikeitė jų darbe.</p>
+  <div class="logos" aria-label="Organizacijos, su kuriomis dirbo krei komanda"><p class="lbl">Dirbome su</p><div class="lv"><div class="lt"><img src="img/logos/ff0178453e.webp" alt="Telia" width="183" height="72" decoding="async"><img src="img/logos/832667a06d.webp" alt="Lietuvos sveikatos mokslų universitetas" width="501" height="72" decoding="async" style="max-width:210px"><img src="img/logos/d7e1c18498.webp" alt="Own Leasing" width="361" height="72" decoding="async"><img src="img/logos/f6ad9745ba.webp" alt="Šiaulių miesto savivaldybė" width="291" height="72" decoding="async"><img src="img/logos/6163db39c2.webp" alt="Forgedot" width="527" height="72" decoding="async"><img src="img/logos/d17c0368a8.webp" alt="Lietuvos pardavimų asociacija" width="317" height="72" decoding="async"><img src="img/logos/df74a2ecb0.webp" alt="Acme grupė" width="160" height="72" decoding="async"><img src="img/logos/e9a8d86661.webp" alt="Lietuvos kultūros taryba" width="214" height="72" decoding="async"><img src="img/logos/f17349ae97.webp" alt="Meiliūnas Real Estate" width="388" height="72" decoding="async"><img src="img/logos/0709ac83f1.webp" alt="Eldeko" width="93" height="72" decoding="async" style="height:44px"><img src="img/logos/9c5770e0b3.webp" alt="Finansiškai Raštingi" width="206" height="72" decoding="async"><img src="img/logos/0c15fbb141.webp" alt="WhiteBridge" width="317" height="72" decoding="async"><img src="img/logos/a4ede9c884.webp" alt="Fast Track" width="446" height="72" decoding="async"><img src="img/logos/fe7082daae.webp" alt="Pasaulinė lyderystės konferencija" width="125" height="72" decoding="async"><img src="img/logos/df99d303b6.webp" alt="Silart" width="198" height="72" decoding="async"></div><div class="lt" aria-hidden="true"><img src="img/logos/ff0178453e.webp" alt="" width="183" height="72" decoding="async"><img src="img/logos/832667a06d.webp" alt="" width="501" height="72" decoding="async" style="max-width:210px"><img src="img/logos/d7e1c18498.webp" alt="" width="361" height="72" decoding="async"><img src="img/logos/f6ad9745ba.webp" alt="" width="291" height="72" decoding="async"><img src="img/logos/6163db39c2.webp" alt="" width="527" height="72" decoding="async"><img src="img/logos/d17c0368a8.webp" alt="" width="317" height="72" decoding="async"><img src="img/logos/df74a2ecb0.webp" alt="" width="160" height="72" decoding="async"><img src="img/logos/e9a8d86661.webp" alt="" width="214" height="72" decoding="async"><img src="img/logos/f17349ae97.webp" alt="" width="388" height="72" decoding="async"><img src="img/logos/0709ac83f1.webp" alt="" width="93" height="72" decoding="async" style="height:44px"><img src="img/logos/9c5770e0b3.webp" alt="" width="206" height="72" decoding="async"><img src="img/logos/0c15fbb141.webp" alt="" width="317" height="72" decoding="async"><img src="img/logos/a4ede9c884.webp" alt="" width="446" height="72" decoding="async"><img src="img/logos/fe7082daae.webp" alt="" width="125" height="72" decoding="async"><img src="img/logos/df99d303b6.webp" alt="" width="198" height="72" decoding="async"></div></div></div>
 </section>
 
 <section class="wrap videos" aria-label="Vaizdo atsiliepimai">
