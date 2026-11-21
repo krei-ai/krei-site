@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<title>krei · Luko KPI simuliatorius</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>
+  :root{
+    --bg:#FBFAF8; --card:#FFFFFF; --ink:#191411; --ink-soft:#3B322C; --muted:#6B635D; --line:#E7E3DD;
+    --accent:#C15F3C; --accent-deep:#9A4A2E; --accent-soft:#F4E7DF; --hero:#191411; --hero-ink:#FBFAF8;
+    --ok:#2F7D4F; --ok-soft:#E4F1E8; --warn:#B42318; --warn-soft:#FBE7E4;
+    --display:'Inter Tight',Inter,ui-sans-serif,system-ui,sans-serif; --serif:'Fraunces',Georgia,serif;
+  }
+  @media (prefers-color-scheme: dark){:root{
+    --bg:#161311; --card:#221D19; --ink:#F1ECE6; --ink-soft:#D8D0C7; --muted:#A79F96; --line:#3A332E;
+    --accent:#D97757; --accent-deep:#E8A98F; --accent-soft:#3A2A21; --hero:#C15F3C; --hero-ink:#FFFFFF;
+    --ok:#6CC08F; --ok-soft:#1E3326; --warn:#F29B8F; --warn-soft:#3D211D; color-scheme:dark}}
+  @font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(/fonts/inter-400.woff2) format('woff2')}
+  @font-face{font-family:'Inter';font-weight:500;font-display:swap;src:url(/fonts/inter-500.woff2) format('woff2')}
+  @font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(/fonts/inter-600.woff2) format('woff2')}
+  @font-face{font-family:'Inter Tight';font-weight:500;font-display:swap;src:url(/fonts/inter-tight-500.woff2) format('woff2')}
+  @font-face{font-family:'Fraunces';font-weight:600;font-display:swap;src:url(/fonts/fraunces-600.woff2) format('woff2')}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 16px 64px}
+  header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+  h1{font-family:var(--display);font-weight:500;font-size:30px;margin:0 0 4px;letter-spacing:-.02em}
+  .logo{display:inline-flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);margin-bottom:22px}
+  .logo .wm{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:-.01em;line-height:1}
+  .logo .dot{color:var(--accent)}
+  .kicker{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-deep);margin:0 0 6px}
+  footer{margin-top:40px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .sub{color:var(--muted);margin:0}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent-deep);margin:0 0 14px;font-weight:600}
+  .grid{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:start}
+  @media (max-width:860px){.grid{grid-template-columns:1fr}}
+  .grid>div{min-width:0}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card+.card{margin-top:20px}
+  label.f{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+  label.f:last-of-type{border-bottom:0}
+  label.f span{font-size:14px}
+  label.f small{display:block;color:var(--muted);font-size:12px}
+  .in{display:flex;align-items:center;gap:6px}
+  .in em{font-style:normal;color:var(--muted);font-size:13px;min-width:14px}
+  input[type=number]{width:96px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;font:inherit;text-align:right;background:var(--bg);color:var(--ink)}
+  input[type=number]:focus{outline:2px solid var(--accent);border-color:transparent}
+  .group-title{font-weight:600;margin:16px 0 2px;font-size:14px}
+  .group-title:first-child{margin-top:0}
+  button{font:inherit;font-size:13px;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+  button:hover{border-color:var(--ink)}
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+  @media (max-width:640px){.tiles{grid-template-columns:repeat(2,1fr)}}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .tile .k{color:var(--muted);font-size:12px;margin-bottom:6px}
+  .tile .v{font-family:var(--display);font-size:28px;font-weight:500;letter-spacing:-.02em}
+  .tile .h{color:var(--muted);font-size:12px;margin-top:4px}
+  .tile.main{background:var(--hero);border-color:var(--hero);color:var(--hero-ink)}
+  .tile.main .k,.tile.main .h{color:var(--hero-ink);opacity:.75}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{padding:10px 8px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  th{font-size:12px;color:var(--muted);font-weight:600}
+  tr:last-child td{border-bottom:0}
+  .scroll{overflow-x:auto}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:600}
+  .pill.ok{background:var(--ok-soft);color:var(--ok)}
+  .pill.warn{background:var(--warn-soft);color:var(--warn)}
+  .bar{height:10px;border-radius:6px;background:var(--accent-soft);overflow:hidden;margin-top:10px}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:6px;transition:width .2s}
+  .notes{margin:12px 0 0;padding-left:18px;color:var(--ink)}
+  .notes li{margin:4px 0}
+  .notes li.warn{color:var(--warn)}
+  .muted{color:var(--muted);font-size:13px}
+  .sens td.cur{background:var(--accent-soft);font-weight:700}
+  .sens td.hi{color:var(--warn)}
+  .sens td.cur{color:var(--accent-deep)}
+  .funnel{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+  .funnel div{background:var(--accent);color:#fff;border-radius:6px;padding:6px 10px;font-size:13px;display:flex;justify-content:space-between;min-width:160px;transition:width .2s}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="logo" href="https://krei.lt" aria-label="krei"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="30" width="13" height="13" rx="3.2" fill="#9A4A2E"/><rect x="17.5" y="17.5" width="13" height="13" rx="3.2" fill="#C15F3C"/><rect x="30" y="5" width="13" height="13" rx="3.2" fill="#D97757"/></svg><span class="wm">kre<span class="dot">i</span></span></a>
+  <header>
+    <div>
+      <p class="kicker">Pardavimų KPI simuliatorius</p>
+      <h1>Luko augimo planas</h1>
+      <p class="sub">Lukas ir Jonas Cyvas · keisk skaičius, rezultatas persiskaičiuoja iškart</p>
+    </div>
+    <button id="reset">Atstatyti pradinius skaičius</button>
+  </header>
+
+  <div class="grid">
+    <!-- INPUTS -->
+    <div>
+      <div class="card">
+        <h2>Tikslas ir prielaidos</h2>
+        <div class="group-title">Tikslas</div>
+        <label class="f"><span>Pajamos per mėn.<small>be PVM</small></span><span class="in"><input type="number" id="target" step="1000" min="0"><em>€</em></span></label>
+        <label class="f"><span>Vidutinis pardavimas</span><span class="in"><input type="number" id="deal" step="500" min="1"><em>€</em></span></label>
+        <label class="f"><span>Darbo savaičių per mėn.</span><span class="in"><input type="number" id="weeks" step="0.1" min="1"><em></em></span></label>
+
+        <div class="group-title">Konversijos</div>
+        <label class="f"><span>Pirmas skambutis → 1 susitikimas</span><span class="in"><input type="number" id="c1" step="1" min="1" max="100"><em>%</em></span></label>
+        <label class="f"><span>1 susitikimas → 2 susitikimas<small>prielaida: 6 pirmi → 5 antri ≈ 83 %</small></span><span class="in"><input type="number" id="c2" step="1" min="1" max="100"><em>%</em></span></label>
+        <label class="f"><span>2 susitikimas → pardavimas</span><span class="in"><input type="number" id="c3" step="1" min="1" max="100"><em>%</em></span></label>
+      </div>
+
+      <div class="card">
+        <h2>Luko planas per savaitę</h2>
+        <label class="f"><span>Pirmi skambučiai</span><span class="in"><input type="number" id="p0" step="1" min="0"><em></em></span></label>
+        <label class="f"><span>Pirmi susitikimai</span><span class="in"><input type="number" id="p1" step="1" min="0"><em></em></span></label>
+        <label class="f"><span>Antri susitikimai</span><span class="in"><input type="number" id="p2" step="1" min="0"><em></em></span></label>
+        <p class="muted" style="margin:10px 0 0">Skaičiai išsisaugo šioje naršyklėje.</p>
+      </div>
+    </div>
+
+    <!-- OUTPUTS -->
+    <div>
+      <div class="tiles">
+        <div class="tile main"><div class="k">Prognozė pagal planą</div><div class="v" id="tForecast">–</div><div class="h" id="tForecastH"></div></div>
+        <div class="tile"><div class="k">Reikia pardavimų / mėn.</div><div class="v" id="tSales">–</div><div class="h" id="tSalesH"></div></div>
+        <div class="tile"><div class="k">Reikia 2 susitikimų / mėn.</div><div class="v" id="tSecond">–</div><div class="h" id="tSecondH"></div></div>
+        <div class="tile"><div class="k">Susitikimų / sav. (1 + 2)</div><div class="v" id="tMeet">–</div><div class="h" id="tMeetH"></div></div>
+      </div>
+
+      <div class="card">
+        <h2>Tikslo įvykdymas pagal planą</h2>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span id="progLabel"></span><strong id="progPct"></strong></div>
+        <div class="bar"><i id="progBar" style="width:0"></i></div>
+        <ul class="notes" id="notes"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Piltuvas: ko reikia ir kas suplanuota</h2>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Etapas</th><th>Konversija</th><th>Reikia / mėn.</th><th>Reikia / sav.</th><th>Planas / sav.</th><th>Būsena</th></tr></thead>
+            <tbody id="fbody"></tbody>
+          </table>
+        </div>
+        <div class="funnel" id="funnel"></div>
+      </div>
+
+      <div class="card">
+        <h2>Jautrumas: kiek antrų susitikimų per savaitę reikia</h2>
+        <p class="muted" style="margin:-6px 0 12px">Pagal pajamų tikslą ir savaičių skaičių. Eilutės: 2 susitikimas → pardavimas. Stulpeliai: vidutinis pardavimas. Oranžiniai langeliai viršija Luko planą.</p>
+        <div class="scroll"><table class="sens" id="sens"></table></div>
+      </div>
+    </div>
+  </div>
+  <footer><span>krei · DI diegimas ir mokymai įmonėms</span><span>Vidinis įrankis komandai</span></footer>
+</div>
+
+<script>
+const DEFAULTS = {target:30000, deal:5000, weeks:4, c1:75, c2:83, c3:30, p0:8, p1:6, p2:5};
+const KEY = 'luko-kpi-v1';
+const ids = Object.keys(DEFAULTS);
+const $ = id => document.getElementById(id);
+
+function load(){
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(KEY)); } catch(e) {}
+  const v = Object.assign({}, DEFAULTS, saved || {});
+  ids.forEach(k => $(k).value = v[k]);
+}
+function save(v){ try { localStorage.setItem(KEY, JSON.stringify(v)); } catch(e) {} }
+
+const eur = n => Math.round(n).toLocaleString('en-US') + '€';
+const f1 = n => (Math.round(n*10)/10).toLocaleString('en-US', {maximumFractionDigits:1});
+const pct = n => Math.round(n) + ' %';
+
+function calc(){
+  const v = {};
+  ids.forEach(k => v[k] = Math.max(0, parseFloat($(k).value) || 0));
+  save(v);
+  const c1 = v.c1/100, c2 = v.c2/100, c3 = v.c3/100, W = v.weeks || 1, D = v.deal || 1;
+
+  // Atgal nuo tikslo
+  const salesM = v.target / D;
+  const secondM = c3 ? salesM / c3 : 0;
+  const firstM = c2 ? secondM / c2 : 0;
+  const callsM = c1 ? firstM / c1 : 0;
+  const need = {calls:callsM/W, first:firstM/W, second:secondM/W, sales:salesM/W};
+
+  // Pirmyn nuo plano (su srauto riba: daugiau susitikimų nei duoda ankstesnis etapas nebus)
+  const fromCalls = v.p0 * c1;
+  const eff1 = fromCalls >= v.p1 - 0.05 ? v.p1 : fromCalls;
+  const fromFirst = eff1 * c2;
+  const eff2 = fromFirst >= v.p2 - 0.05 ? v.p2 : fromFirst;
+  const salesW = eff2 * c3;
+  const revenueM = salesW * W * D;
+  let bottleneck = 'antri susitikimai';
+  if (eff2 < v.p2 - 0.05) bottleneck = (eff1 < v.p1 - 0.05) ? 'pirmi skambučiai' : 'pirmi susitikimai';
+
+  // Plytelės
+  const progress = v.target ? revenueM / v.target * 100 : 0;
+  $('tForecast').textContent = eur(revenueM);
+  $('tForecastH').textContent = f1(salesW*W) + ' pard. / mėn. · ' + Math.round(progress) + ' % tikslo';
+  $('tSales').textContent = f1(salesM);
+  $('tSalesH').textContent = 'apvalinant ' + Math.ceil(salesM - 1e-9) + ' po ' + eur(D);
+  $('tSecond').textContent = f1(secondM);
+  $('tSecondH').textContent = f1(need.second) + ' per savaitę';
+  $('tMeet').textContent = f1(need.first + need.second);
+  $('tMeetH').textContent = 'planas: ' + f1(v.p1 + v.p2);
+
+  // Progresas
+  $('progLabel').textContent = eur(revenueM) + ' iš ' + eur(v.target);
+  $('progPct').textContent = Math.round(progress) + ' %';
+  $('progBar').style.width = Math.min(100, progress) + '%';
+
+  // Pastabos
+  const notes = [];
+  const gap = v.target - revenueM;
+  if (gap > 1) notes.push(['warn', 'Trūksta ' + eur(gap) + ' per mėn. Riba: ' + bottleneck + '.']);
+  else notes.push(['', 'Planas pasiekia tikslą' + (gap < -1 ? ' su ' + eur(-gap) + ' rezervu.' : '.')]);
+  if (fromCalls < v.p1 - 0.05) notes.push(['warn', f1(v.p0) + ' skambučių × ' + pct(v.c1) + ' = ' + f1(fromCalls) + ' pirmų susitikimų, o suplanuota ' + f1(v.p1) + '. Reikia ' + f1(c1 ? v.p1/c1 : 0) + ' skambučių per sav.']);
+  if (fromFirst < v.p2 - 0.05) notes.push(['warn', f1(eff1) + ' pirmų susitikimų × ' + pct(v.c2) + ' = ' + f1(fromFirst) + ' antrų, o suplanuota ' + f1(v.p2) + '. Reikia ' + f1(c2 ? v.p2/c2 : 0) + ' pirmų susitikimų per sav.']);
+  if (v.p2 < need.second - 0.05) notes.push(['warn', 'Antrų susitikimų planas (' + f1(v.p2) + ') mažesnis nei reikia tikslui (' + f1(need.second) + ' per sav.).']);
+  notes.push(['', 'Modelis rodo pastovų mėnesį: antri susitikimai šį mėnesį dažnai virsta pardavimais kitą, todėl pirmą mėnesį pajamos bus mažesnės.']);
+  $('notes').innerHTML = notes.map(n => '<li class="' + n[0] + '">' + n[1] + '</li>').join('');
+
+  // Piltuvo lentelė
+  const status = (plan, req) => plan >= req - 0.05
+    ? '<span class="pill ok">' + (plan > req + 0.05 ? '+' + f1(plan - req) : 'OK') + '</span>'
+    : '<span class="pill warn">−' + f1(req - plan) + '</span>';
+  const rows = [
+    ['Pirmi skambučiai', pct(v.c1), callsM, need.calls, v.p0],
+    ['Pirmi susitikimai', pct(v.c2), firstM, need.first, v.p1],
+    ['Antri susitikimai', pct(v.c3), secondM, need.second, v.p2],
+    ['Pardavimai', '', salesM, need.sales, salesW],
+  ];
+  let html = rows.map(r => '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + f1(r[2]) + '</td><td>' + f1(r[3]) + '</td><td>' + f1(r[4]) + (r[0]==='Pardavimai' ? ' <span class="muted">(prognozė)</span>' : '') + '</td><td>' + status(r[4], r[3]) + '</td></tr>').join('');
+  html += '<tr><td><strong>Pajamos</strong></td><td></td><td><strong>' + eur(v.target) + '</strong></td><td>' + eur(v.target / W) + '</td><td>' + eur(salesW * D) + '</td><td>' + (revenueM >= v.target - 1 ? '<span class="pill ok">' + (revenueM > v.target + 1 ? '+' + eur(revenueM - v.target) : 'OK') + '</span>' : '<span class="pill warn">−' + eur(v.target - revenueM) + '</span>') + '</td></tr>';
+  $('fbody').innerHTML = html;
+
+  // Vizualus piltuvas (reikia per savaitę)
+  const steps = [['Skambučiai', need.calls], ['1 susitikimai', need.first], ['2 susitikimai', need.second], ['Pardavimai', need.sales]];
+  const max = Math.max(...steps.map(s => s[1]), 0.0001);
+  $('funnel').innerHTML = '<div class="muted" style="background:none;color:var(--muted);padding:0;min-width:0">Reikia per savaitę</div>' +
+    steps.map(s => '<div style="width:' + Math.max(18, s[1]/max*100) + '%"><span>' + s[0] + '</span><strong>' + f1(s[1]) + '</strong></div>').join('');
+
+  // Jautrumo lentelė
+  const rates = [20, 25, 30, 35, 40];
+  const deals = [3000, 4000, 5000, 6000, 7000];
+  let s = '<thead><tr><th>2 susit. → pard.</th>' + deals.map(d => '<th>' + eur(d) + '</th>').join('') + '</tr></thead><tbody>';
+  rates.forEach(r => {
+    s += '<tr><td>' + r + ' %</td>' + deals.map(d => {
+      const n = v.target / d / (r/100) / W;
+      const cur = (r === Math.round(v.c3) && d === Math.round(D));
+      const cls = cur ? 'cur' : (n > v.p2 + 0.05 ? 'hi' : '');
+      return '<td class="' + cls + '">' + f1(n) + '</td>';
+    }).join('') + '</tr>';
+  });
+  $('sens').innerHTML = s + '</tbody>';
+}
+
+load();
+ids.forEach(k => $(k).addEventListener('input', calc));
+$('reset').addEventListener('click', () => { ids.forEach(k => $(k).value = DEFAULTS[k]); calc(); });
+calc();
+</script>
+</body>
+</html>
