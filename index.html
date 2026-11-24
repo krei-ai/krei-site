@@ -345,7 +345,7 @@ ul,ol{list-style:none}
 .field input:hover,.field select:hover,.field textarea:hover{border-color:rgba(255,255,255,.16)}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:rgba(217,119,87,.8);background-color:#2c2721;box-shadow:0 0 0 3px rgba(217,119,87,.18)}
 .f-grid.tried input:invalid,.f-grid.tried select:invalid,.f-grid.tried textarea:invalid{border-color:rgba(240,120,100,.75)}
-.f-opt{display:none}
+@media(max-width:599.98px){.f-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.f-grid>.field{grid-column:1/-1}.f-grid>.f-n{grid-column:auto}}
 .consent{display:flex;align-items:flex-start;gap:12px;margin-top:14px;min-height:44px;cursor:pointer;font-size:13px;line-height:1.45;color:rgba(255,255,255,.56)}
 .consent input{flex:none;width:20px;height:20px;margin:1px 0 0;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:#28241f;-webkit-appearance:none;appearance:none;cursor:pointer;display:grid;place-content:center;transition:background-color .2s ease,border-color .2s ease}
 .consent input::before{content:"";width:10px;height:6px;border-left:2px solid #2a140a;border-bottom:2px solid #2a140a;transform:translateY(-1px) rotate(-45deg) scale(0);transition:transform .15s ease}
@@ -383,7 +383,6 @@ ul,ol{list-style:none}
   .pok-form h3{font-size:30px;margin-bottom:24px}
   .field input,.field select{font-size:15px}
   .field textarea{font-size:15px;min-height:72px;height:72px}
-  .f-opt{display:flex}
   .cta--full{margin-top:20px;font-size:16.5px}
   .pok-note{margin-top:20px}
   .pok-side{padding:26px 32px 30px}
@@ -966,20 +965,16 @@ ul,ol{list-style:none}
         <form id="leadForm" aria-label="Užklausos forma" novalidate>
           <div class="hp" aria-hidden="true"><label>Svetainė<input type="text" name="svetaine" tabindex="-1" autocomplete="off"></label></div>
           <div class="f-grid">
-            <div class="field f-a"><label for="f-vardas">Vardas</label><input id="f-vardas" type="text" name="vardas" autocomplete="name" placeholder="Vardas Pavardė" required></div>
+            <div class="field f-a f-n"><label for="f-vardas">Vardas</label><input id="f-vardas" type="text" name="vardas" autocomplete="given-name" placeholder="Vardas" minlength="2" maxlength="60" required></div>
+            <div class="field f-a f-n"><label for="f-pavarde">Pavardė</label><input id="f-pavarde" type="text" name="pavarde" autocomplete="family-name" placeholder="Pavardė" minlength="2" maxlength="60" required></div>
             <div class="field f-a"><label for="f-imone">Įmonės pavadinimas</label><input id="f-imone" type="text" name="imone" autocomplete="organization" placeholder="UAB „Pavyzdys“"></div>
             <div class="field f-a"><label for="f-tel">Telefonas</label><input id="f-tel" type="tel" name="telefonas" autocomplete="tel" placeholder="+370" required></div>
             <div class="field f-a"><label for="f-email">El. paštas</label><input id="f-email" type="email" name="email" autocomplete="email" placeholder="vardas@imone.lt" required></div>
             <div class="field f-a"><label for="f-dsk">Darbuotojų skaičius</label>
               <select id="f-dsk" name="darbuotoju_sk" required><option value="" disabled selected>Pasirink…</option><option>Privatus asmuo / Individuali veikla</option><option value="1&ndash;10 darbuotojų">1-10 darbuotojų</option><option value="11&ndash;50 darbuotojų">11-50 darbuotojų</option><option value="51&ndash;200 darbuotojų">51-200 darbuotojų</option><option value="201&ndash;1000 darbuotojų">201-1000 darbuotojų</option><option>1000+ darbuotojų</option></select></div>
-            <div class="field f-a f-opt"><label for="f-pajamos">Metinės pajamos <span class="opt"> (neprivaloma)</span></label>
-              <select id="f-pajamos" name="pajamos"><option value="" selected>Pasirink…</option><option>iki €100 000</option><option value="€100 000 &ndash; €500 000">€100 000 - €500 000</option><option value="€500 000 &ndash; €1 mln.">€500 000 - €1 mln.</option><option value="€1 &ndash; 5 mln.">€1 - 5 mln.</option><option>€5 mln. +</option><option>Nenoriu nurodyti</option></select></div>
-            <div class="field f-b"><label for="f-sektorius">Sektorius</label>
+            <div class="field f-c"><label for="f-sektorius">Sektorius</label>
               <input id="f-sektorius" name="sektorius" list="sektoriai" placeholder="Pasirink arba įrašyk" autocomplete="off" required>
               <datalist id="sektoriai"><option value="Statyba"><option value="Gamyba ir pramonė"><option value="Prekyba"><option value="E-komercija"><option value="Transportas ir logistika"><option value="Paslaugos"><option value="Finansai ir draudimas"><option value="Nekilnojamasis turtas"><option value="Sveikata ir grožis"><option value="Švietimas ir mokymai"><option value="IT ir technologijos"><option value="Rinkodara ir agentūros"><option value="Apgyvendinimas ir maitinimas"><option value="Kita"></datalist></div>
-            <div class="field f-b f-opt"><label for="f-saltinis">Iš kur apie mus sužinojai? <span class="opt"> (neprivaloma)</span></label>
-              <input id="f-saltinis" name="saltinis" list="saltiniai" placeholder="Pasirink arba įrašyk" autocomplete="off">
-              <datalist id="saltiniai"><option value="Facebook / Instagram"><option value="LinkedIn"><option value="Google"><option value="Rekomendacija"><option value="Renginys ar paskaita"><option value="Podcastas / YouTube"><option value="Kita"></datalist></div>
             <div class="field f-c"><label for="f-tikslai">Kokią problemą nori išspręsti?</label><textarea id="f-tikslai" name="tikslai" rows="3" placeholder="Pvz.: „Vadybininkai pusę dienos rašo pasiūlymus ir atsakinėja į tuos pačius klausimus, o užklausos laukia po 2 dienas.“" required></textarea></div>
           </div>
           <label class="consent"><input type="checkbox" name="sutikimas" required><span>Susipažinau su <a href="/teisine.html#privatumas" target="_blank" rel="noopener">privatumo politika</a> ir sutinku, kad krei susisiektų su manimi dėl pokalbio.</span></label>
@@ -1209,11 +1204,26 @@ var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbya91jlBB1fbY5fzc5u
   window.addEventListener('load',function(){ setTimeout(function(){ var b=document.getElementById('pokalbis'); if(b) b.scrollIntoView({behavior:'smooth',block:'start'}); },300); });
 })();
 
+/* Vardas ir pavardė atskiri privalomi laukai (2026-11-24): kiekviename bent 2 ženklai ir raidė, ne tik tarpai */
+function kreiNmCheck(){
+  [['f-vardas','Įrašyk vardą.'],['f-pavarde','Įrašyk pavardę.']].forEach(function(x){
+    var el = document.getElementById(x[0]); if(!el) return;
+    var v = el.value.trim();
+    el.setCustomValidity(v.length >= 2 && /[A-Za-z\u00C0-\u024F\u0400-\u04FF]/.test(v) ? '' : x[1]);
+  });
+}
+['f-vardas','f-pavarde'].forEach(function(id){ var el = document.getElementById(id); if(el) el.addEventListener('input', kreiNmCheck); });
+
 document.getElementById('leadForm').addEventListener('submit', async function(e){
   e.preventDefault();
+  kreiNmCheck();
   if(!this.checkValidity()){ this.reportValidity(); return; }
   var data = Object.fromEntries(new FormData(this).entries());
   if(data.svetaine){ this.reset(); return; } delete data.svetaine;
+  /* backend'ui „vardas“ lieka pilnas vardas („Vardas Pavardė“), kaip iki šiol; jei pavardė jau įrašyta prie vardo, nedubliuojam */
+  var fnV = String(data.vardas||'').trim().replace(/\s+/g,' '), lnV = String(data.pavarde||'').trim().replace(/\s+/g,' ');
+  data.vardas = (fnV.length > lnV.length && fnV.toLowerCase().slice(-(lnV.length+1)) === ' '+lnV.toLowerCase()) ? fnV : (fnV+' '+lnV).trim();
+  data.pavarde = lnV;
   data.sutikimas = !!data.sutikimas; data.variant = window.__kreiVariant || 'g'; data.puslapis = location.href; data.timestamp = new Date().toISOString();
   var btn = this.querySelector('button[type=submit]'); if(btn){ btn.disabled = true; (btn.querySelector('.cta-t')||btn).textContent = 'Siunčiama…'; }
   /* Meta CAPI: event_id + fbp/fbc/UA keliauja į Apps Script, kuris siunčia Lead serverio puse; /aciu.html?eid= šauna tą patį Lead naršyklėje (dedup) */
@@ -1222,7 +1232,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   try{ var fb = window.kreiFbData ? kreiFbData() : {}; data.fbp = fb.fbp||''; data.fbc = fb.fbc||''; data.ua = fb.ua||navigator.userAgent; data.referrer = fb.referrer||''; data.ip = fb.ip||''; data.external_id = fb.external_id||''; if(fb.test_event_code) data.test_event_code = fb.test_event_code; }catch(e){}
   /* Istorijų atribucija (2026-09-19): ar leadas matė /istorijos ir ar į formą atėjo tiesiai iš jų -> Sheet stulpeliai X-AB */
   try{ var ist = window.kreiIstorijos ? kreiIstorijos() : null; if(ist){ data.mate_istorijas = ist.mate ? 'TAIP' : 'NE'; data.istorijos_kelias = ist.kelias ? 'TAIP' : 'NE'; data.istorijos_kelias_kaip = ist.kelias_kaip||''; data.istorijos_kada = ist.kada||''; data.istorijos_vizitai = ist.vizitai||0; data.istorijos_atvejai = ist.atvejai||''; } }catch(e){}
-  try{ var nm = String(data.vardas||'').trim().split(/\s+/); sessionStorage.setItem('krei_lead_am', JSON.stringify({ em: String(data.email||'').trim().toLowerCase(), ph: (function(d){ if(d.length===9&&d.charAt(0)==='8') d='370'+d.slice(1); if(d.length===8&&d.charAt(0)==='6') d='370'+d; return d; })(String(data.telefonas||'').replace(/\D/g,'')), fn: (nm[0]||'').toLowerCase(), ln: nm.slice(1).join(' ').toLowerCase(), country: 'lt' })); }catch(e){}
+  try{ var amFn = data.vardas.slice(0, data.vardas.length - lnV.length).trim() || fnV; sessionStorage.setItem('krei_lead_am', JSON.stringify({ em: String(data.email||'').trim().toLowerCase(), ph: (function(d){ if(d.length===9&&d.charAt(0)==='8') d='370'+d.slice(1); if(d.length===8&&d.charAt(0)==='6') d='370'+d; return d; })(String(data.telefonas||'').replace(/\D/g,'')), fn: amFn.toLowerCase(), ln: lnV.toLowerCase(), country: 'lt' })); }catch(e){}
   try{
     var msg = document.getElementById('formMsg');
     if(FORM_ENDPOINT){
