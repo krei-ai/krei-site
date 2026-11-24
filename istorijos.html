@@ -450,12 +450,16 @@ body{padding-bottom:env(safe-area-inset-bottom)}
   var AW_ID = 'AW-18452193276'; /* Google Ads tag (AW-...), build-site.py įrašo iš GOOGLE_ADS_TAG */
 
   /* Atribucija (v5, 2026-09-15): gclid + utm_* + fbclid iš URL -> localStorage 90 d.; forma prideda prie payload -> Sheet.
-     Last-touch: nauja reklamos paspaudimo sesija perrašo senus laukus. */
+     Last-touch: nauja reklamos paspaudimo sesija perrašo senus laukus.
+     v7 (2026-11-24): + first {ts, landing}: pirmas žinomas paspaudimas šioje naršyklėje (90 d.), nekeičiamas; forma siunčia first_landing / first_ts,
+     Slack rodo „Pirma reklama“, kai ji kita nei paskutinė (2026-11-24 leadas: 024 16:56, 014 17:04, Slack matė tik 014). */
   function captureAttr(){ try {
     var q = new URLSearchParams(location.search), a = JSON.parse(localStorage.getItem('krei_attr') || 'null') || {}, hit = false, now = Date.now();
     if (a.ts && now - a.ts > 90 * 864e5) a = {};
+    if (a.first && !(now - a.first.ts <= 90 * 864e5)) delete a.first;
+    if (!a.first && a.ts && a.landing) a.first = { ts: a.ts, landing: a.landing }; /* senas įrašas be first: ankstesnis paspaudimas tampa pirmu */
     ['gclid','utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid'].forEach(function(k){ var v = q.get(k); if (v) { a[k] = String(v).slice(0, 200); hit = true; } });
-    if (hit) { a.ts = now; a.landing = (location.pathname + location.search).slice(0, 300); }
+    if (hit) { a.ts = now; a.landing = (location.pathname + location.search).slice(0, 300); if (!a.first) a.first = { ts: now, landing: a.landing }; }
     if (hit || a.ts) localStorage.setItem('krei_attr', JSON.stringify(a));
     return a; } catch (e) { return {}; } }
   var ATTR = captureAttr();
@@ -471,10 +475,15 @@ body{padding-bottom:env(safe-area-inset-bottom)}
   var ipReady = IP ? Promise.resolve(IP) : fetch('https://api64.ipify.org?format=json', { mode: 'cors' }).then(function(r){ return r.json(); }).then(function(j){ IP = (j && j.ip) || ''; try { sessionStorage.setItem('krei_ip', IP); } catch (e) {} return IP; }).catch(function(){ return ''; });
   setTimeout(function(){ ipReady = Promise.resolve(IP); }, 2500); /* max 2.5 s laukimo IP, po to siunčiam be jo */
   function cookie(n){ var m = document.cookie.match('(?:^|; )' + n + '=([^;]*)'); return m ? decodeURIComponent(m[1]) : ''; }
+  /* v7 (2026-11-24): naujas fbclid URL'e (kitas nei slapuke) = naujas paspaudimas -> naujas _fbc, kaip daro Meta pixel (fbevents ne(): maybeUpdatePayload).
+     Iki tol grąžindavom seną slapuką, todėl PageView, išsiųstas prieš užsikraunant pixel'iui, nueidavo su ankstesnės reklamos paspaudimu. */
   function fbc(){
-    var c = cookie('_fbc'); if (c) return c;
-    var q = null; try { q = new URLSearchParams(location.search).get('fbclid'); } catch (e) {}
-    if (q) { c = 'fb.1.' + Date.now() + '.' + q; try { document.cookie = '_fbc=' + c + ';path=/;max-age=7776000;domain=.krei.lt;SameSite=Lax;Secure'; } catch (e) {} }
+    var c = cookie('_fbc'), q = null;
+    try { q = new URLSearchParams(location.search).get('fbclid'); } catch (e) {}
+    if (q && (!c || (c.split('.')[3] || '') !== q.replace(/\./g, '__DOT__'))) {
+      c = 'fb.1.' + Date.now() + '.' + q;
+      try { document.cookie = '_fbc=' + c + ';path=/;max-age=7776000;domain=.krei.lt;SameSite=Lax;Secure'; } catch (e) {}
+    }
     return c || '';
   }
   /* relay laukia _fbp (fbevents.js turi susikurti slapuka) iki ~7,5 s (skriptas keliamas po load); be fbp Meta atmeta serverio event'a */
