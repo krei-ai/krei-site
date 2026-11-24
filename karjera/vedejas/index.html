@@ -10,7 +10,7 @@
 <meta property="og:locale" content="lt_LT">
 <meta property="og:site_name" content="krei">
 <meta property="og:title" content="krei ieško dirbtinio intelekto dirbtuvių vedėjo">
-<meta property="og:description" content="Vedi praktines DI dirbtuves Lietuvos įmonėms: programa, medžiaga ir klientai mūsų, tu sutelki dėmesį į vedimą.">
+<meta property="og:description" content="Vedi praktines DI dirbtuves Lietuvos įmonėms. 200-400€ už vedimo dieną.">
 <meta property="og:url" content="https://krei.lt/karjera/vedejas/">
 <meta property="og:image" content="https://krei.lt/og-card.png">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -41,7 +41,7 @@ body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans);fo
   padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 p,h1,h2,h3,ul,ol{margin:0;padding:0}
 ul,ol{list-style:none}
-.page{max-width:860px;margin:0 auto;background:var(--paper);padding:40px 44px 36px;display:flex;flex-direction:column;gap:30px}
+.page{max-width:860px;margin:0 auto;background:var(--paper);padding:40px 44px 36px;display:flex;flex-direction:column;gap:34px}
 .mono{font-family:var(--mono);font-weight:500;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
 .top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--hair);padding-bottom:12px}
 .wm{color:var(--ink);text-decoration:none;font-family:var(--wm);font-weight:600;font-size:26px;line-height:1}
@@ -54,37 +54,42 @@ h1 em{font-style:normal;color:var(--et)}
 .chip{font-size:12.5px;background:var(--tint);border-radius:999px;padding:5px 12px;color:var(--ink2)}
 .chip b{color:var(--ink);font-weight:600}
 h2{font-family:var(--head);font-weight:600;font-size:19px;letter-spacing:-.02em;margin-bottom:12px;text-wrap:balance}
-.intro{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.intro > div{border-top:2px solid var(--ink);padding-top:10px;min-width:0}
-.intro p{color:var(--ink2);margin-top:6px}
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.st{border-radius:14px;padding:14px;background:var(--tint);min-width:0}
-.st h3{font-family:var(--head);font-weight:600;font-size:15px;margin:4px 0 6px}
-.st p{color:var(--ink2);font-size:13.5px}
-.note{color:var(--mute);margin-top:10px;font-size:13px}
+.sub{color:var(--ink2);max-width:66ch;margin:-4px 0 14px}
+.why{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.why > div{border-top:2px solid var(--ink);padding-top:10px;min-width:0}
+.why h3{font-family:var(--head);font-weight:600;font-size:15.5px;margin:4px 0 6px}
+.why p{color:var(--ink2)}
+.ex{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.card{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card);min-width:0;display:flex;flex-direction:column;gap:6px}
+.card h3{font-family:var(--head);font-weight:600;font-size:15px}
+.card p{color:var(--ink2);font-size:13.5px;flex:1}
+.res{font-family:var(--head);font-weight:500;font-size:15px;color:var(--et);border-top:1px solid var(--hair);padding-top:8px;font-variant-numeric:tabular-nums}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.st{border-radius:14px;padding:16px 18px;background:var(--tint);min-width:0}
+.st h3{font-family:var(--head);font-weight:600;font-size:15.5px;margin:4px 0 6px}
+.st p{color:var(--ink2)}
+.note{color:var(--mute);margin-top:12px;font-size:13px}
 .two{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px}
 .two > div{min-width:0}
 .dots li{color:var(--ink2);padding-left:16px;position:relative;margin-top:7px}
 .dots li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--ember)}
 .dots.no li::before{background:var(--line)}
 .dots b{color:var(--ink);font-weight:600}
-.pay{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.opt{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--card);min-width:0;display:flex;flex-direction:column;gap:10px}
-.opt h3{font-family:var(--head);font-weight:600;font-size:16px}
-.big{font-family:var(--head);font-weight:500;font-size:26px;letter-spacing:-.03em;line-height:1.1;color:var(--et);font-variant-numeric:tabular-nums}
-.big small{font-size:.55em;color:var(--mute);letter-spacing:0}
-.opt p{color:var(--ink2);font-size:13.5px}
-.tiers{display:flex;flex-direction:column;gap:6px}
-.tier{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--hair);padding-bottom:6px;font-size:13.5px;color:var(--ink2)}
-.tier b{color:var(--ink);font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
-.both{margin-top:14px}
+.pay{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px;align-items:start}
+.price{background:var(--tint);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.big{font-family:var(--head);font-weight:500;font-size:34px;letter-spacing:-.03em;line-height:1.1;color:var(--et);font-variant-numeric:tabular-nums}
+.price p{color:var(--ink2)}
+.pay .dots li:first-child{margin-top:0}
 .flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:s}
 .flow li{border-top:2px solid var(--ink);padding-top:10px;color:var(--ink2);counter-increment:s;min-width:0}
 .flow li::before{content:counter(s);display:block;font-family:var(--head);font-weight:600;font-size:22px;color:var(--et);margin-bottom:4px}
 .flow b{color:var(--ink);font-weight:600}
-.contact{background:var(--ink);color:var(--paper);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.contact{background:var(--ink);color:var(--paper);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:16px}
 .contact h2{color:var(--paper);margin:0}
 .contact p{color:#CFC8BE}
+.need{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;counter-reset:n}
+.need li{color:var(--paper);padding-left:22px;position:relative;counter-increment:n}
+.need li::before{content:counter(n);position:absolute;left:0;top:0;font-family:var(--head);font-weight:600;color:var(--ember)}
 .lines{display:flex;flex-wrap:wrap;gap:10px}
 .line{display:flex;align-items:center;gap:10px;background:#1E1C1A;border-radius:12px;padding:10px 12px 10px 16px;min-width:0}
 .line .v{font-family:var(--head);font-weight:500;font-size:18px;color:var(--paper);overflow-wrap:anywhere;text-decoration:none;display:block}
@@ -93,12 +98,12 @@ button{font:inherit;font-size:12.5px;font-weight:500;border:0;border-radius:8px;
 button:hover{background:var(--et)}
 button:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
 .foot{color:var(--mute);font-size:12px;border-top:1px solid var(--hair);padding-top:12px}
-@media (max-width:720px){
-  .page{padding:26px 20px 24px;gap:26px}
-  .intro,.two,.pay,.flow{grid-template-columns:minmax(0,1fr)}
-  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){
+  .page{padding:26px 20px 24px;gap:30px}
+  .why,.two,.pay,.flow,.steps,.need{grid-template-columns:minmax(0,1fr)}
+  .ex{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
-@media (max-width:420px){.steps{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:460px){.ex{grid-template-columns:minmax(0,1fr)}}
 </style>
 
 </head>
@@ -111,34 +116,74 @@ button:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
 
   <section class="hero">
     <h1>Dirbtinio intelekto dirbtuvių <em>vedėjas</em></h1>
-    <p class="lead">Važiuoji pas Lietuvos įmones ir vedi praktines DI dirbtuves: per 1-2 dienas savininkai, vadovai ir biuro darbuotojai išeina su veikiančiu DI asistentu ir pirmais DI darbuotojais savo darbams.</p>
+    <p class="lead">Važiuoji pas Lietuvos įmones ir vedi praktines DI dirbtuves. Per 1-2 dienas savininkai, vadovai ir biuro darbuotojai susikuria DI darbuotojus savo kasdieniams darbams ir išmoksta juos toliau kurti patys.</p>
     <div class="facts">
+      <span class="chip"><b>200-400€</b> už vedimo dieną</span>
+      <span class="chip">Bent <b>10 vedimo dienų</b> per mėnesį</span>
       <span class="chip">Vilnius, Kaunas, Klaipėda</span>
       <span class="chip">Grupė iki 6 žmonių</span>
-      <span class="chip">Pradžia kuo greičiau</span>
     </div>
   </section>
 
-  <section class="intro">
-    <div>
-      <div class="mono">Kas mes</div>
-      <p>krei.lt dirba su statybos, gamybos, logistikos, transporto ir paslaugų įmonėmis. Įdiegiame DI asistentą (VS Code + Claude Code), o 70-80 % laiko žmonės dirba su savo tikrais darbais. Dirbame su klientais, kuriems svarbi aukščiausia kokybė, todėl ieškome aukštų standartų žmogaus.</p>
+  <section>
+    <h2>Kodėl darome tai, ką darome</h2>
+    <div class="why">
+      <div>
+        <div class="mono">Problema</div>
+        <h3>Įmonėms trūksta laiko, ne žmonių</h3>
+        <p>Kūrėme ir auginome ne vieną verslą ir visur matėme tą patį. Vadovai ir komandos skęsta pasikartojančiuose darbuose: sąmatos, pasiūlymai, sutartys, ataskaitos, atsakymai klientams. Dirba iki vėlumos, o laiko sprendimams ir augimui nelieka.</p>
+      </div>
+      <div>
+        <div class="mono">Ką darome</div>
+        <h3>DI darbuotojai jų tikriems darbams</h3>
+        <p>Atvažiuojame į įmonę ir per dvi dienas kartu su komanda sukuriame DI darbuotojus jų darbams. 70-80 % laiko žmonės dirba su savo tikrais darbais, ne klauso teorijos. Komanda išmoksta naujus DI darbuotojus kurti, valdyti ir tobulinti be mūsų.</p>
+      </div>
+      <div>
+        <div class="mono">Vertė</div>
+        <h3>Laikas grįžta žmonėms</h3>
+        <p>DI darbuotojas pasikartojantį darbą padaro iki 10 kartų greičiau, o žmogui lieka peržiūrėti ir patvirtinti. Žmonės sutaupo 2-4 val. per dieną, kai kuriose pozicijose iki 80 % laiko, ir grįžta prie klientų, sprendimų ir augimo.</p>
+      </div>
     </div>
-    <div>
-      <div class="mono">Kodėl dabar</div>
-      <p>Renkame pagrindinę komandą. Kas prisijungs dabar, vėliau pats atrinks ir apmokys naujus vedėjus, o kitame etape kartu kursime savus produktus.</p>
+  </section>
+
+  <section>
+    <h2>Kokius darbus padėsi įgyvendinti</h2>
+    <p class="sub">Pavyzdžiai iš statybos, gamybos ir logistikos įmonių, kurias jau mokėme. Dirbtuvėse kiekvienas dalyvis susikuria tokį DI darbuotoją savo darbui, o tu padedi jam tai padaryti.</p>
+    <div class="ex">
+      <div class="card"><h3>Sąmatos ir pasiūlymai</h3><p>Perskaito brėžinį, suskaičiuoja kiekius ir paruošia sąmatą pagal įmonės įkainius.</p><div class="res">25 min. vietoj pusdienio</div></div>
+      <div class="card"><h3>Medžiagų išrankos</h3><p>Iš brėžinio ištraukia profilius, lakštus ir kiekius į vieną medžiagų sąrašą.</p><div class="res">20 min. vietoj visos dienos</div></div>
+      <div class="card"><h3>Sutartys ir dokumentai</h3><p>Užpildo sutartis ir audito dokumentus iš įmonės duomenų. Žmogui lieka patikrinti.</p><div class="res">10 min. vietoj 3 dienų</div></div>
+      <div class="card"><h3>Darbo laikas ir sąskaitos</h3><p>Surenka darbo laiką iš tachografų ar objektų ir sudaro ataskaitas su sąskaitomis.</p><div class="res">Savaitės darbas per 1 dieną</div></div>
+      <div class="card"><h3>Pardavimai iš senų klientų</h3><p>Randa atšalusius klientus, primena, kam skambinti, ir paruošia pasiūlymą.</p><div class="res">Iki 4 val. per dieną pardavimams</div></div>
+      <div class="card"><h3>Klientų užklausos</h3><p>Atsako į užklausas ir išsiunčia pasiūlymą, kol klientas dar renkasi.</p><div class="res">3 kartus greitesnis atsakymas</div></div>
     </div>
   </section>
 
   <section>
     <h2>Ką darysi</h2>
     <div class="steps">
-      <div class="st"><div class="mono">Prieš, apie 2 val.</div><h3>Pasiruoši</h3><p>Perskaitai dalyvių klausimynus, pritaikai programą jų darbams ir pravedi įdiegimo skambutį, kad dirbtuvėse visi iškart dirbtų.</p></div>
-      <div class="st"><div class="mono">1-2 dienos</div><h3>Vedi pas klientą</h3><p>Pagal mūsų programą ir vedėjo gidą. Vaikštai tarp žmonių, padedi užstrigusiems, sutvarkai, kai kas neveikia. Nuo 7 žmonių vedame dviese.</p></div>
-      <div class="st"><div class="mono">30 dienų, iki 2 val.</div><h3>Palaikai</h3><p>Atsakai į kliento klausimus WhatsApp grupėje ar el. paštu.</p></div>
-      <div class="st"><div class="mono">Tarp dirbtuvių</div><h3>Tobulini</h3><p>Nuotoliniai įdiegimai, individualios sesijos ir programos tobulinimas.</p></div>
+      <div class="st">
+        <div class="mono">Prieš dirbtuves, apie 2 val.</div>
+        <h3>Pasiruoši</h3>
+        <p>Perskaitai dalyvių klausimynus ir sužinai, kokius darbus jie nori perduoti DI. Pagal tai pritaikai programą. Pravedi nuotolinį įdiegimo skambutį su dalyviais: kiekvieno kompiuteryje įdiegiate asistentą, kad dirbtuvėse visi iškart dirbtų, o ne diegtų programas.</p>
+      </div>
+      <div class="st">
+        <div class="mono">1-2 dienos pas klientą</div>
+        <h3>Vedi dirbtuves</h3>
+        <p>Vedi pagal mūsų programą ir vedėjo gidą: trumpai paaiškini, parodai pavyzdį, ir dalyviai iškart dirba su savo darbais. Vaikštai tarp jų, padedi užstrigusiems ir sutvarkai, kai kas neveikia. Iki 6 žmonių grupę vedi vienas, nuo 7 žmonių vedame dviese.</p>
+      </div>
+      <div class="st">
+        <div class="mono">30 dienų po dirbtuvių</div>
+        <h3>Padedi, kai prireikia</h3>
+        <p>Klientas 30 dienų gauna pagalbą. Kai dalyviai kreipiasi, atsakai jiems kliento WhatsApp grupėje ar el. paštu. Vienam klientui tai dažniausiai užima iki 2 val. per visą laikotarpį.</p>
+      </div>
+      <div class="st">
+        <div class="mono">Tarp dirbtuvių</div>
+        <h3>Diegi ir tobulini</h3>
+        <p>Pravedi nuotolinius įdiegimus ir individualias sesijas vienam žmogui. Tai, ką pastebi dirbtuvėse, paverti programos ir medžiagos patobulinimais.</p>
+      </div>
     </div>
-    <p class="note">Programą, medžiagą ir demonstracijas paruošiame mes. Klientus atveda pardavimų komanda, tu sutelki dėmesį į vedimą.</p>
+    <p class="note">Programą, medžiagą ir demonstracijas paruošiame mes. Klientus atveda pardavimų komanda, todėl tu sutelki dėmesį į vedimą.</p>
   </section>
 
   <section class="two">
@@ -146,12 +191,10 @@ button:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
       <h2>Ko ieškome</h2>
       <ul class="dots">
         <li>Kasdien dirbi su Claude, ChatGPT ar panašiais įrankiais ir jau automatizavai tikrus darbus, ne tik susirašinėji. <b>Claude Code</b> ar kiti agentų įrankiai yra didelis pliusas, likusio išmokysime.</li>
-        <li>Paprasta kalba paaiškini netechniniams žmonėms. Ramus, kantrus, nesipuikuoji.</li>
+        <li>Paprasta kalba paaiškini sudėtingus dalykus netechniniams žmonėms.</li>
         <li>Nebijai pilnos dienos prieš grupę ir jauti, kada žmogui padėti, o kada leisti dirbti pačiam.</li>
         <li>Be panikos sutvarkai įdiegimo problemas Windows ir Mac kompiuteriuose.</li>
-        <li>Žinai, ko DI negalima leisti išsiųsti, ištrinti ar kam nors parodyti be žmogaus patvirtinimo.</li>
-        <li>Gerai rašai lietuviškai.</li>
-        <li>Gali važiuoti pas klientus po Lietuvą po 1-2 dienas iš eilės kelis kartus per mėnesį.</li>
+        <li>Gali skirti <b>bent 10 pilnų darbo dienų per mėnesį</b> vedimui ir važiuoti pas klientus po Lietuvą.</li>
         <li><b>Pliusas:</b> dirbai operacijose, gamyboje, statyboje ar logistikoje arba jau vedei mokymus.</li>
       </ul>
     </div>
@@ -167,30 +210,19 @@ button:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
   <section>
     <h2>Ką siūlome</h2>
     <div class="pay">
-      <div class="opt">
-        <div class="mono">Mokame už vedimo dieną</div>
-        <div class="big">iki 400€ <small>už dieną</small></div>
-        <div class="tiers">
-          <div class="tier"><span>Pirmas dirbtuves stebi</span><b>neapmokama</b></div>
-          <div class="tier"><span>Vedi kartu su mūsų vedėju</span><b>200€ / d.</b></div>
-          <div class="tier"><span>Pirmos 3 dirbtuvės vienas</span><b>300€ / d.</b></div>
-          <div class="tier"><span>Kai dalyviai vertina 9 iš 10 ar geriau</span><b>400€ / d.</b></div>
-          <div class="tier"><span>Individuali sesija vienam žmogui</span><b>300€ / d.</b></div>
-        </div>
+      <div class="price">
+        <div class="mono">Atlygis</div>
+        <div class="big">200-400€</div>
+        <p>už vedimo dieną, priklausomai nuo patirties lygio.</p>
       </div>
-      <div class="opt">
-        <div class="mono">Svarbu žinoti</div>
-        <p>Jei jau vedi DI mokymus grupėms, 400€ už dieną nuo pradžių, tariamės individualiai.</p>
-        <p>Pasiruošimas ir 30 dienų pagalba klientui įskaičiuoti į dienos įkainį.</p>
-        <p>Tinka šalia kitos veiklos, jei ji lanksti darbo dienomis.</p>
-      </div>
+      <ul class="dots">
+        <li>Pasiruošimas ir 30 dienų pagalba klientui įskaičiuoti į dienos įkainį.</li>
+        <li>Papildomai <b>10 %</b> nuo pardavimų klientams, kuriuos apmokei (per 6 mėn. po dirbtuvių), ir nuo klientų, kuriuos atvedi pats.</li>
+        <li>Kelionės išlaidos apmokamos, DI įrankių licencijos taip pat.</li>
+        <li>Lankstus grafikas, dalis įdiegimų ir mokymų vyksta nuotoliu. Biuras Vilniaus centre.</li>
+        <li>Renkame pagrindinę komandą. Kas prisijungs dabar, vėliau atrinks ir apmokys naujus vedėjus, o kitame etape kartu kursime savus produktus.</li>
+      </ul>
     </div>
-    <ul class="dots both">
-      <li>Papildomai <b>10 %</b> nuo pardavimų klientams, kuriuos apmokei (per 6 mėn. po dirbtuvių), ir nuo klientų, kuriuos atvedi pats.</li>
-      <li>Krūvis auga kartu su pardavimais. Pirmą mėnesį įsivedi ir pirmas dirbtuves vedi kartu su mūsų vedėju.</li>
-      <li>Kelionės išlaidos apmokamos, DI įrankių licencijos taip pat.</li>
-      <li>Lankstus grafikas, dalis įdiegimų ir mokymų vyksta nuotoliu. Biuras Vilniaus centre.</li>
-    </ul>
   </section>
 
   <section>
@@ -203,12 +235,20 @@ button:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
   </section>
 
   <section class="contact">
-    <h2>Rašyk arba skambink</h2>
-    <p>Antanas Sitnikas, krei įkūrėjas</p>
+    <h2>Kaip kandidatuoti</h2>
+    <p>Atsiųsk el. laišką su tema „Kandidatuoju: DI dirbtuvių vedėjas“. Laiške nurodyk ir pridėk:</p>
+    <ol class="need">
+      <li>Vardą ir pavardę</li>
+      <li>Telefono numerį</li>
+      <li>LinkedIn profilio nuorodą</li>
+      <li>CV</li>
+      <li>Portfolio arba nuorodas į tai, ką esi sukūręs ar automatizavęs</li>
+    </ol>
     <div class="lines">
-      <div class="line"><div><div class="k">El. paštas</div><a class="v" id="email" href="mailto:antanas@krei.lt">antanas@krei.lt</a></div><button type="button" data-copy="email">Kopijuoti</button></div>
-      <div class="line"><div><div class="k">Telefonas</div><a class="v" id="phone" href="tel:+37060304727">+370 603 04727</a></div><button type="button" data-copy="phone">Kopijuoti</button></div>
+      <div class="line"><div><div class="k">El. paštas</div><a class="v" id="email" href="mailto:antanas@krei.lt?subject=Kandidatuoju%3A%20DI%20dirbtuvi%C5%B3%20ved%C4%97jas">antanas@krei.lt</a></div><button type="button" data-copy="email">Kopijuoti</button></div>
+      <div class="line"><div><div class="k">Klausimai telefonu</div><a class="v" id="phone" href="tel:+37060304727">+370 603 04727</a></div><button type="button" data-copy="phone">Kopijuoti</button></div>
     </div>
+    <p>Antanas Sitnikas, krei įkūrėjas</p>
   </section>
 
   <p class="foot"><a href="https://krei.lt/" style="color:inherit">krei.lt</a> · DI diegimas ir mokymai įmonėms</p>
