@@ -230,19 +230,22 @@ ul,ol{list-style:none}
   .cmp{padding:64px 0 16px}
   .cmp .wrap{padding-inline:0}
   .cmp h2{padding-inline:20px;font-size:30px}
-  .cmp-scroll{margin-top:28px}
-  .cmp-in{width:390px;max-width:none;padding-inline:20px}
-  .cmp-table{width:350px;--stick:20px}
-  .cmp-table col.c-l{width:130px}
-  .cmp-table col.c-k{width:110px}
-  .cmp-table col.c-o{width:55px}
+  .cmp-scroll{margin-top:28px;container-type:inline-size}
+  .cmp-in{width:auto;max-width:none;padding-inline:0}
+  .cmp-table{--side:20px;width:calc(350px + 2*var(--side));--stick:var(--side)}
+  @supports (width:1cqw){.cmp-table{--side:max(20px,calc(50cqw - 175px))}}
+  .cmp-table col.c-l{width:calc(var(--side) + 138px)}
+  .cmp-table col.c-k{width:92px}
+  .cmp-table col.c-o{width:60px}
+  .cmp-table col.c-o:last-child{width:calc(var(--side) + 60px)}
   .cmp-table thead th{height:81px}
-  .cmp-table tbody th{height:102px;padding:0 6px 0 0}
-  .cmp-table tbody td{height:102px;padding:0}
-  .cmp-table tbody tr:last-of-type th,.cmp-table tbody tr:last-of-type td{height:83px}
-  .cmp-table thead th.k{border-radius:30px 30px 0 0;clip-path:inset(0 round 30px 30px 0 0)}
-  .cmp-table tfoot td.k{border-radius:0 0 30px 30px;clip-path:inset(0 round 0 0 30px 30px)}
-  .cmp-table thead th.k::before{left:-11px;top:-61px;width:132px;height:90px;filter:blur(30px)}
+  .cmp-table tbody th{height:110px;padding:0 12px 0 var(--side)}
+  .cmp-table tbody td{height:110px;padding:0}
+  .cmp-table tr>:last-child{padding-right:var(--side)}
+  .cmp-table tbody tr:last-of-type th,.cmp-table tbody tr:last-of-type td{height:91px}
+  .cmp-table thead th.k{border-radius:22px 22px 0 0;clip-path:inset(0 round 22px 22px 0 0)}
+  .cmp-table tfoot td.k{border-radius:0 0 22px 22px;clip-path:inset(0 round 0 0 22px 22px)}
+  .cmp-table thead th.k::before{left:-9px;top:-61px;width:110px;height:90px;filter:blur(30px)}
   .cmp-brand{gap:6.417px}
   .cmp-brand svg{width:21.39px;height:21.39px}
   .cmp-brand span{font-size:23.529px}
@@ -252,6 +255,7 @@ ul,ol{list-style:none}
   .cmp-lab span{font-size:12px;line-height:16px;letter-spacing:-.004em;max-width:var(--sw,none)}
   .cmp-table tfoot td{height:62px}
   .cmp-table tfoot td.k{padding-top:6px;height:62px}
+  .cmp-table tfoot .cta{padding-inline:8px}
   .cta.cta--sm{padding:10px 14px;min-height:40px;font-size:13px}
   .cta.cta--sm::before{left:50%}
   .cta.cta--sm svg{display:none}
