@@ -232,16 +232,16 @@ ul,ol{list-style:none}
   .cmp h2{padding-inline:20px;font-size:30px}
   .cmp-scroll{margin-top:28px;container-type:inline-size}
   .cmp-in{width:auto;max-width:none;padding-inline:0}
-  .cmp-table{--side:20px;width:calc(350px + 2*var(--side));--stick:var(--side)}
-  @supports (width:1cqw){.cmp-table{--side:max(20px,calc(50cqw - 175px))}}
-  .cmp-table col.c-l{width:calc(var(--side) + 138px)}
+  .cmp-table{--x:0px;--o:70px;width:calc(250px + 2*var(--o) + 2*var(--x));--stick:20px}
+  @supports (width:1cqw){.cmp-table{--x:max(0px,calc(50cqw - 195px));--o:clamp(55px,calc(50cqw - 125px),70px)}}
+  .cmp-table col.c-l{width:calc(158px + var(--x))}
   .cmp-table col.c-k{width:92px}
-  .cmp-table col.c-o{width:60px}
-  .cmp-table col.c-o:last-child{width:calc(var(--side) + 60px)}
+  .cmp-table col.c-o{width:var(--o)}
+  .cmp-table col.c-o:last-child{width:calc(var(--o) + var(--x))}
   .cmp-table thead th{height:81px}
-  .cmp-table tbody th{height:110px;padding:0 12px 0 var(--side)}
+  .cmp-table tbody th{height:110px;padding:0 12px 0 calc(20px + var(--x))}
   .cmp-table tbody td{height:110px;padding:0}
-  .cmp-table tr>:last-child{padding-right:var(--side)}
+  .cmp-table tr>:last-child{padding-right:var(--x)}
   .cmp-table tbody tr:last-of-type th,.cmp-table tbody tr:last-of-type td{height:91px}
   .cmp-table thead th.k{border-radius:22px 22px 0 0;clip-path:inset(0 round 22px 22px 0 0)}
   .cmp-table tfoot td.k{border-radius:0 0 22px 22px;clip-path:inset(0 round 0 0 22px 22px)}
