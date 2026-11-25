@@ -1031,8 +1031,7 @@ ul,ol{list-style:none}
             <div class="field f-a"><label for="f-dsk">Darbuotojų skaičius</label>
               <select id="f-dsk" name="darbuotoju_sk" required><option value="" disabled selected>Pasirink…</option><option>Privatus asmuo / Individuali veikla</option><option value="1&ndash;10 darbuotojų">1-10 darbuotojų</option><option value="11&ndash;50 darbuotojų">11-50 darbuotojų</option><option value="51&ndash;200 darbuotojų">51-200 darbuotojų</option><option value="201&ndash;1000 darbuotojų">201-1000 darbuotojų</option><option>1000+ darbuotojų</option></select></div>
             <div class="field f-c"><label for="f-sektorius">Sektorius</label>
-              <input id="f-sektorius" name="sektorius" list="sektoriai" placeholder="Pasirink arba įrašyk" autocomplete="off" required>
-              <datalist id="sektoriai"><option value="Statyba"><option value="Gamyba ir pramonė"><option value="Prekyba"><option value="E-komercija"><option value="Transportas ir logistika"><option value="Paslaugos"><option value="Finansai ir draudimas"><option value="Nekilnojamasis turtas"><option value="Sveikata ir grožis"><option value="Švietimas ir mokymai"><option value="IT ir technologijos"><option value="Rinkodara ir agentūros"><option value="Apgyvendinimas ir maitinimas"><option value="Kita"></datalist></div>
+              <input id="f-sektorius" type="text" name="sektorius" placeholder="Pvz.: statyba, gamyba, logistika" autocomplete="off" maxlength="80" required></div>
             <div class="field f-c"><label for="f-tikslai">Kokią problemą nori išspręsti?</label><textarea id="f-tikslai" name="tikslai" rows="3" placeholder="Pvz.: „Vadybininkai pusę dienos rašo pasiūlymus ir atsakinėja į tuos pačius klausimus, o užklausos laukia po 2 dienas.“" required></textarea></div>
           </div>
           <button type="submit" class="cta cta--full"><span class="cta-t">Siųsti</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
