@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Ką statybos rangovo DI darbuotojai padarė per pirmą savaitę po krei dirbtuvių.">
+<meta property="og:title" content="Statybos rangovas, pirma savaitė su DI">
+<meta property="og:description" content="Ką statybos rangovo DI darbuotojai padarė per pirmą savaitę po krei dirbtuvių.">
+<meta property="og:image" content="https://krei.lt/og-card.png">
+<meta property="og:url" content="https://krei.lt/istorija/statybos-rangovas/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<style>html,body{margin:0}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Statybos rangovo pirma savaitė su DI</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,500&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column like a site report; numbers first, then work by role, then proof and limits. krei brand from the client slides. */
+:root {
+  --paper: #F6F5F4;
+  --card: #FFFFFF;
+  --ink: #1D1D1F;
+  --mute: #6B6B6B;
+  --rule: #DDDAD5;
+  --tint: #F0ECE6;
+  --ember: #C15F3C;
+  --ember-2: #9A4A2E;
+  --ember-3: #D97757;
+  --f-display: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --f-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --f-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121110; --card: #1A1918; --ink: #F5F5F3; --mute: #A3A09C;
+    --rule: #302D2A; --tint: #1F1C1A; --ember: #D97757; --ember-2: #C15F3C; --ember-3: #E8957A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121110; --card: #1A1918; --ink: #F5F5F3; --mute: #A3A09C;
+  --rule: #302D2A; --tint: #1F1C1A; --ember: #D97757; --ember-2: #C15F3C; --ember-3: #E8957A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 17px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1040px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+}
+.bar {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-bottom: 18px; border-bottom: 1px solid var(--rule);
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute);
+}
+.brand { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-transform: none; letter-spacing: 0; }
+.brand svg { width: 26px; height: 26px; }
+.brand .wm { font-family: var(--f-serif); font-size: 24px; font-weight: 500; line-height: 1; }
+.brand .wm i { color: var(--ember); }
+
+header.hero { padding-block: 56px 32px; display: grid; gap: 20px; }
+h1 {
+  font-family: var(--f-display); font-weight: 700; letter-spacing: -.035em;
+  font-size: clamp(40px, 7.2vw, 84px); line-height: 1; margin: 0; text-wrap: balance;
+}
+h1 i, h2 i { font-family: var(--f-serif); font-weight: 500; font-style: italic; color: var(--ember); letter-spacing: -.01em; }
+.lede { max-width: 62ch; margin: 0; font-size: 19px; color: var(--ink); }
+.lede + .lede { color: var(--mute); font-size: 17px; }
+
+.figs {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
+  background: var(--rule); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden;
+  margin-block: 8px 8px;
+}
+.fig { background: var(--card); padding: 22px 20px 20px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.fig .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+.fig .v { font-family: var(--f-display); font-weight: 700; font-size: clamp(30px, 3.6vw, 42px); line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.fig .v small { font-size: .45em; letter-spacing: 0; font-weight: 600; color: var(--mute); }
+.fig p { margin: 0; font-size: 14.5px; line-height: 1.5; color: var(--mute); }
+.fig.hero-fig .v { color: var(--ember); }
+.note { font-size: 13.5px; color: var(--mute); margin: 10px 0 0; max-width: 80ch; }
+
+section { padding-top: 64px; }
+h2 {
+  font-family: var(--f-display); font-weight: 700; letter-spacing: -.03em;
+  font-size: clamp(28px, 4vw, 42px); line-height: 1.08; margin: 0 0 10px; text-wrap: balance;
+}
+.sub { margin: 0 0 24px; color: var(--mute); max-width: 66ch; }
+
+.role { margin-top: 36px; }
+.role-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 20px; padding-bottom: 10px; border-bottom: 2px solid var(--ink); }
+.role-head h3 { font-family: var(--f-display); font-weight: 700; font-size: 22px; letter-spacing: -.02em; margin: 0; }
+.role-head .tot { font-family: var(--f-mono); font-size: 13px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.role-head .tot b { color: var(--ember); font-weight: 500; }
+
+.tbl { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 640px; }
+th {
+  text-align: left; font-family: var(--f-mono); font-weight: 400; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--mute); padding: 14px 16px 10px 0; border-bottom: 1px solid var(--rule); vertical-align: bottom;
+}
+th.now { color: var(--ember); }
+td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 15.5px; line-height: 1.5; }
+td:first-child { font-weight: 600; width: 22%; }
+td.before { color: var(--mute); width: 34%; }
+td.now { width: 44%; }
+td .h { display: inline-block; margin-top: 6px; font-family: var(--f-mono); font-size: 12.5px; color: var(--mute); font-variant-numeric: tabular-nums; }
+td.now .h { color: var(--ember-2); }
+td.now .h.m { color: var(--ember); }
+
+.cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.case { background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.case .k { font-family: var(--f-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ember); }
+.case h3 { font-family: var(--f-display); font-size: 20px; line-height: 1.2; letter-spacing: -.02em; margin: 0; }
+.case p { margin: 0; font-size: 15px; line-height: 1.55; }
+
+.quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+blockquote { margin: 0; padding-top: 16px; border-top: 2px solid var(--ember); display: grid; gap: 10px; min-width: 0; }
+blockquote p { margin: 0; font-family: var(--f-display); font-weight: 600; font-size: 24px; line-height: 1.25; letter-spacing: -.015em; }
+blockquote cite { font-style: normal; font-size: 14px; color: var(--mute); }
+
+.limits { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.limits li { padding: 14px 0; border-bottom: 1px solid var(--rule); display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 6px 24px; }
+.limits b { font-weight: 600; }
+.limits span { color: var(--mute); }
+
+footer { margin-top: 64px; padding-top: 18px; border-top: 1px solid var(--rule); display: grid; gap: 6px; font-size: 13.5px; color: var(--mute); }
+footer p { margin: 0; max-width: 90ch; }
+
+@media (max-width: 860px) {
+  .figs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cases, .quotes { grid-template-columns: 1fr; }
+  .limits li { grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .figs { grid-template-columns: 1fr; }
+  body { font-size: 16px; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <span>Kliento istorija · Statybos rangovas</span>
+    <span class="brand"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="30" width="13" height="13" rx="3.2" fill="#9A4A2E"/><rect x="17.5" y="17.5" width="13" height="13" rx="3.2" fill="#C15F3C"/><rect x="30" y="5" width="13" height="13" rx="3.2" fill="#D97757"/></svg><span class="wm">kre<i>i</i></span></span>
+  </div>
+
+  <header class="hero">
+    <h1>Statybos rangovas, pirma <i>savaitė</i>.</h1>
+    <p class="lede">Statybos rangovas Vakarų Lietuvoje dirba pamatų, polių, mūro, monolito, metalo konstrukcijų ir fasadų darbus, dalyvauja viešuosiuose pirkimuose ir turi apie 50 darbuotojų. 2026 m. lapkritį įmonės direktorius, bendrasavininkas ir sąmatininkas dvi dienas dalyvavo krei DI dirbtuvėse.</p>
+    <p class="lede">Čia surašyta tai, ką jų DI darbuotojai padarė per pirmą savaitę. DI paruošia darbą, o sprendimus, kainas ir siuntimą klientams palieka žmonėms.</p>
+  </header>
+
+  <div class="figs" role="list">
+    <div class="fig hero-fig" role="listitem">
+      <span class="k">Uždirbta</span>
+      <span class="v">50,000€</span>
+      <p>Tiek įmonė uždirbo jau pirmą savaitę, kai DI sutikrino sąmatą.</p>
+    </div>
+    <div class="fig" role="listitem">
+      <span class="k">Perimta</span>
+      <span class="v">160-172 <small>val. per mėn.</small></span>
+      <p>Tiek laiko anksčiau užimdavo darbai, kuriuos dabar paruošia DI, o žmonės tik patikrina.</p>
+    </div>
+    <div class="fig" role="listitem">
+      <span class="k">Sutvarkyta</span>
+      <span class="v">7,000+ <small>failų</small></span>
+      <p>Per dvi dienas visi bendri failai perkelti į naują tvarką, be nė vienos klaidos.</p>
+    </div>
+    <div class="fig" role="listitem">
+      <span class="k">Surinkta</span>
+      <span class="v">556 <small>įmonės</small></span>
+      <p>Patikrintų subrangovų bazė pagal 22 darbų grupes, atrinkta iš viešų registrų.</p>
+    </div>
+  </div>
+  <p class="note">Valandos „prieš“ yra pačių dalyvių įverčiai klausimyne prieš dirbtuves. Laiko „dabar“ dar niekas nematavo laikrodžiu, todėl jis pažymėtas kaip DI įvertis arba nematuotas.</p>
+
+  <section>
+    <h2>Ką DI daro <i>kiekvienam</i> žmogui</h2>
+    <p class="sub">Kiekvienas dalyvis susikūrė DI darbuotoją savo darbams. Lentelėse matyti, kaip kiekvienas darbas buvo daromas anksčiau ir kas pasikeitė dabar.</p>
+
+    <div class="role">
+      <div class="role-head">
+        <h3>Direktorius</h3>
+        <span class="tot">anksčiau <b>116-120 val. per mėn.</b> (jo įvertis)</span>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Darbas</th><th>Anksčiau</th><th class="now">Dabar</th></tr></thead>
+        <tbody>
+          <tr><td>Sąmatų tikrinimas</td><td class="before">Sąmatas direktorius tikrino pats, ir brangiausia klaida būdavo neteisingas įkainis.<br><span class="h">apie 32 val. per mėn.</span></td><td class="now">DI sulygina sąmatos įkainius su rinkos kainomis, o galutines kainas ir nuolaidas sprendžia direktorius.<br><span class="h">nematuota</span></td></tr>
+          <tr><td>Dokumentai prieš objektą</td><td class="before">Įsakymus ir darbų saugos dokumentus kiekvienam objektui ruošė direktorius.<br><span class="h">apie 32 val. per mėn.</span></td><td class="now">Dokumentus pagal įmonės instrukciją paruošia DI, o direktorius juos peržiūri prieš naudodamas.<br><span class="h">nematuota</span></td></tr>
+          <tr><td>Technologinės kortelės</td><td class="before">Korteles direktorius rašė ranka. Bandė su ChatGPT, bet nepavyko.<br><span class="h">apie 16 val. per mėn.</span></td><td class="now">Korteles paruošia DI, o direktorius kiekvieną peržiūri.<br><span class="h">nematuota</span></td></tr>
+          <tr><td>Objektų paieška viešuosiuose pirkimuose</td><td class="before">Pirkimus direktorius peržiūrėdavo ir reikalavimus tikrindavo ranka.<br><span class="h">apie 32 val. per mėn.</span></td><td class="now">DI atrenka tik tuos pirkimus, kuriuose įmonė gali dalyvauti viena pagal savo atestatus, ir pažymi neaiškias vietas. Direktoriaus žodžiais, „šiek tiek greičiau“.<br><span class="h">jo įvertis</span></td></tr>
+          <tr><td>Subrangovų paieška</td><td class="before">Subrangovų jis ieškojo kiekvienam objektui iš naujo, bendro patikrinto sąrašo nebuvo.<br><span class="h">4-8 val. per mėn.</span></td><td class="now">Yra 556 įmonių bazė: įmonė veikia, neturi skolų žymos, turi bent 3 apdraustuosius ir veikia bent 2 metus.<br><span class="h m">556 įmonės, išmatuota</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3>Bendrasavininkas</h3>
+        <span class="tot">anksčiau <b>44-52 val.</b>, dabar <b>6-7 val. per mėn.</b></span>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Darbas</th><th>Anksčiau (jo įvertis)</th><th class="now">Dabar (DI įvertis)</th></tr></thead>
+        <tbody>
+          <tr><td>Tiekėjų sąskaitos</td><td class="before">Apie 180 sąskaitų per mėnesį jis atsidarydavo, priskirdavo objektui ir ranka vesdavo į lentelę.<br><span class="h">apie 11,5 val. per mėn.</span></td><td class="now">DI pats randa sąskaitas dviejuose paštuose, ištraukia duomenis ir pasiūlo objektą. Į lentelę įrašo tik po žmogaus „taip“.<br><span class="h">apie 1,5 val. per mėn., 30 s sąskaitai</span></td></tr>
+          <tr><td>Mokėjimai bankui</td><td class="before">Kiekvieną mokėjimą banke jis vedė ranka.<br><span class="h">apie 4,5 val. per mėn. (DI įvertis)</span></td><td class="now">DI paruošia banko importo failą, o žmogus peržiūri sąrašą ir pats pasirašo banke. Pirmą vakarą taip įkelti ir pasirašyti 16 mokėjimų.<br><span class="h">apie 1 val. per mėn.</span></td></tr>
+          <tr><td>Mėnesio tabelis</td><td class="before">Darbuotojai siuntė tabelius nuotraukomis ir žinutėmis, o jis juos perrašydavo į Excel.<br><span class="h">16-24 val. per mėn.</span></td><td class="now">DI primena darbuotojams, surenka tabelius iš žinučių ir pašto ir paruošia dvi versijas: vidinę ir buhalterei.<br><span class="h">2-3 val. per mėn.</span></td></tr>
+          <tr><td>Atliktų darbų aktai</td><td class="before">Kiekius jis matuodavo brėžiniuose ir skaičiuodavo ranka, apie 2 aktus per mėnesį.<br><span class="h">apie 2 val. vienam aktui</span></td><td class="now">DI iš brėžinių suskaičiuoja kiekius ir užpildo aktą, o klausia tik to, ko brėžinyje nėra.<br><span class="h">apie 30 min. vienam aktui</span></td></tr>
+          <tr><td>19 automobilių informacija</td><td class="before">Apžiūros, draudimai ir kelių mokestis buvo išmėtyti po registrus ir paštą, o terminus reikėdavo atsiminti.<br><span class="h">apie 8 val. per mėn.</span></td><td class="now">Kas pirmadienį DI pats surenka visus duomenis į vieną failą, o artėjančius terminus įrašo į kalendorių.<br><span class="h">apie 30 min. per mėn.</span></td></tr>
+          <tr><td>Kuro kontrolė</td><td class="before">Kuro niekas netikrino, sąskaitos buvo tik apmokamos.</td><td class="now">Kas savaitę DI kiekvieną kuro pylimą sutikrina su automobilių GPS duomenimis, o išvadas daro bendrasavininkas.<br><span class="h m">naujas darbas, į sutaupymą neįskaičiuotas</span></td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <h3>Sąmatininkas</h3>
+        <span class="tot">laikas <b>dar nematuotas</b></span>
+      </div>
+      <div class="tbl"><table>
+        <thead><tr><th>Darbas</th><th>Anksčiau</th><th class="now">Dabar</th></tr></thead>
+        <tbody>
+          <tr><td>Naujų pirkimų paieška</td><td class="before">Naujų konkursų jis ieškodavo pirkimų sistemoje pats ir pats skaitė jų sąlygas.</td><td class="now">DI 4 kartus per darbo dieną patikrina naujus pirkimus ir į paštą atsiunčia tik tuos, kuriems tinka įmonės atestatai.<br><span class="h m">7, 10, 13 ir 16 val., išmatuota</span></td></tr>
+          <tr><td>Sąmatų tikrinimas</td><td class="before">Sąmatas jis skaičiavo sąmatų programoje pats, o dalis vienetų klaidų patekdavo į pateiktus pasiūlymus.</td><td class="now">DI tikrina vienetus ir neužpildytas kainas, iš senų sąmatų sudarė įkainių biblioteką ir iš karto pasako, kur reikės subrangovų kainų.</td></tr>
+          <tr><td>Ankstesnių pirkimų analizė</td><td class="before">Rezultatai buvo išmėtyti pirkimų sistemoje ir sprendimų raštuose, bendros suvestinės nebuvo.</td><td class="now">DI peržiūrėjo 54 įmonės pirkimus ir 19 sprendimų raštų. Dažniausia pralaimėjimo priežastis buvo kaina virš užsakovo biudžeto.<br><span class="h m">54 pirkimai, 19 raštų</span></td></tr>
+          <tr><td>Atostogų lentelė</td><td class="before">Darbuotojai apie atostogas rašė į grupę, o lentelę jis vedė pats.</td><td class="now">DI 3 kartus per dieną perskaito naujas žinutes ir suveda datas. Pirmą kartą suvedė 91 įrašą nuo metų pradžios.<br><span class="h m">91 įrašas</span></td></tr>
+          <tr><td>Svetainė</td><td class="before">Senos svetainės saugumo sertifikatas buvo pasibaigęs nuo 2025 m. vasario.</td><td class="now">Sertifikatas sutvarkytas ir atsinaujina pats, o nauja svetainė ir prekės ženklo knyga paruoštos.</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Trys geriausi <i>pavyzdžiai</i></h2>
+        <div class="cases">
+      <article class="case">
+        <span class="k">Sąmata</span>
+        <h3>DI rado darbus, kurių trūko kiekių žiniaraštyje</h3>
+        <p>DI perskaitė seno, jau įvykdyto garažo pirkimo dokumentus ir sąmatą suskaičiavo iš naujo. Jis rado darbų, kurie buvo techninėje specifikacijoje, bet neįrašyti į žiniaraštį: plėvelę, pastolius ir dalį pamatų darbų. Būtent šiuos darbus užsakovas vėliau apmokėjo kaip papildomus. Dabar DI tokius darbus pažymi iš karto ir paruošia klausimą užsakovui.</p>
+      </article>
+      <article class="case">
+        <span class="k">Failai</span>
+        <h3>7,000 failų per dvi dienas be nė vienos klaidos</h3>
+        <p>Pirmiausia DI parodė naujos aplankų tvarkos maketą, ir direktorius jį patvirtino. Tada programa perkėlė visus objektus, pasiūlymus ir archyvą ir kiekvieną failą patikrino pagal kontrolinę sumą. Dabar kiekvienas darbuotojas mato tik tuos aplankus, kurių reikia jo darbui.</p>
+      </article>
+      <article class="case">
+        <span class="k">Mokėjimai</span>
+        <h3>16 mokėjimų vienu failu, o pasirašo žmogus</h3>
+        <p>Pirmas bandymas su 3 mokėjimais praėjo banko gavėjo patikrą. Tą patį vakarą tuo pačiu būdu buvo įkelta ir pasirašyta 16 mokėjimų. DI veda žurnalą, kad ta pati sąskaita nebūtų apmokėta dukart, ir niekada pats nepasirašo.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Jų <i>žodžiais</i></h2>
+    <div class="quotes">
+      <blockquote><p>„Struktūra tinka.“</p><cite>Direktorius apie naują failų tvarką</cite></blockquote>
+      <blockquote><p>„Abu variantai geri, darysime kiekvieną mėnesį.“</p><cite>Bendrasavininkas, peržiūrėjęs pirmą DI paruoštą tabelį</cite></blockquote>
+      <blockquote><p>„Kaina šiaip tikrai gera.“</p><cite>Sąmatininkas apie DI perskaičiuotą garažo sąmatą</cite></blockquote>
+    </div>
+  </section>
+
+  <section>
+    <h2>Kas dar <i>neveikia</i></h2>
+    <p class="sub">Po pirmos savaitės ne viskas veikia. Dalyviai patys surašė, kas dar liko.</p>
+    <ul class="limits">
+      <li><b>Sąmata iš pirkimo dokumentų</b><span>Tai didžiausias sąmatininko darbas (jo įvertis 100-180 val. per mėn.), ir jis dar neperimtas. Bandyme tik 10 iš 30 DI parinktų įkainių sutapo su tais, kuriuos parinko sąmatininkas.</span></li>
+      <li><b>Laikas nematuotas</b><span>Laikas „dabar“ yra DI įvertis arba nematuotas. Laikrodžiu jo dar niekas nematavo.</span></li>
+      <li><b>Sąmatų programa</b><span>Kai DI suveda sąmatą pele, įterpta eilutė kartais paslenka kitas, todėl kiekvieną žingsnį žmogus tikrina.</span></li>
+      <li><b>Prisijungimai</b><span>Dalis patikrų priklauso nuo prisijungimo prie pirkimų sistemos ir registrų, kurie dar ne visur veikia.</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Šaltinis: trijų dalyvių (direktoriaus, bendrasavininko ir sąmatininko) rezultatų ataskaitos, 2026-11-10. Jos parengtos iš DI darbo užrašų, klausimyno prieš dirbtuves ir dalyvių žodžių.</p>
+    <p>Įmonės pavadinimo neskelbiame įmonės prašymu. Klientų, tiekėjų ir darbuotojų vardų čia nėra.</p>
+    <p>krei.lt · DI diegimas ir mokymai įmonėms</p>
+  </footer>
+</div>
+
+</body>
+</html>
